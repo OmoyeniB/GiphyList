@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9A829F02277D7CF7002C03F2 /* APIListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A829F01277D7CF7002C03F2 /* APIListResponse.swift */; };
+		B44B107527CA9299009316BD /* ApiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B107427CA9299009316BD /* ApiClass.swift */; };
+		B44B107827CA9739009316BD /* GifModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B107727CA9739009316BD /* GifModel.swift */; };
+		B4F4A99C27C68CF000C8F89E /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4A99B27C68CF000C8F89E /* MainViewCell.swift */; };
+		B4F4A99E27C68E5C00C8F89E /* GifTableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4A99D27C68E5C00C8F89E /* GifTableViewCell+Extension.swift */; };
 		FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B425EECD340029E28F /* AppDelegate.swift */; };
 		FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B625EECD340029E28F /* SceneDelegate.swift */; };
 		FF9415BB25EECD350029E28F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9415BA25EECD350029E28F /* Assets.xcassets */; };
@@ -25,6 +29,10 @@
 
 /* Begin PBXFileReference section */
 		9A829F01277D7CF7002C03F2 /* APIListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIListResponse.swift; sourceTree = "<group>"; };
+		B44B107427CA9299009316BD /* ApiClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClass.swift; sourceTree = "<group>"; };
+		B44B107727CA9739009316BD /* GifModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifModel.swift; sourceTree = "<group>"; };
+		B4F4A99B27C68CF000C8F89E /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
+		B4F4A99D27C68E5C00C8F89E /* GifTableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GifTableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		FF9415B125EECD340029E28F /* Dispo Take Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dispo Take Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9415B425EECD340029E28F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF9415B625EECD340029E28F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +61,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B44B107327CA927C009316BD /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				B44B107427CA9299009316BD /* ApiClass.swift */,
+			);
+			path = NetworkServices;
+			sourceTree = "<group>";
+		};
+		B44B107627CA971D009316BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B44B107727CA9739009316BD /* GifModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B44B107927CAC095009316BD /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				B4F4A99B27C68CF000C8F89E /* MainViewCell.swift */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
 		FF9415A825EECD340029E28F = {
 			isa = PBXGroup;
 			children = (
@@ -72,8 +104,11 @@
 		FF9415B325EECD340029E28F /* Dispo Take Home */ = {
 			isa = PBXGroup;
 			children = (
+				B44B107627CA971D009316BD /* Model */,
+				B44B107327CA927C009316BD /* NetworkServices */,
 				FF9415B425EECD340029E28F /* AppDelegate.swift */,
 				FF9415B625EECD340029E28F /* SceneDelegate.swift */,
+				B44B107927CAC095009316BD /* CustomCell */,
 				FF9415E825EEEA4C0029E28F /* Main */,
 				FF9415EA25EEEA510029E28F /* Detail */,
 				FF9415EC25EEEA560029E28F /* Util */,
@@ -97,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				FF9415CA25EED1360029E28F /* MainViewController.swift */,
+				B4F4A99D27C68E5C00C8F89E /* GifTableViewCell+Extension.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -204,8 +240,12 @@
 				FF9415D525EED60B0029E28F /* Constants.swift in Sources */,
 				FF9415E225EEDC3A0029E28F /* SearchResult.swift in Sources */,
 				FF9415CB25EED1360029E28F /* MainViewController.swift in Sources */,
+				B4F4A99E27C68E5C00C8F89E /* GifTableViewCell+Extension.swift in Sources */,
+				B4F4A99C27C68CF000C8F89E /* MainViewCell.swift in Sources */,
 				FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */,
 				FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */,
+				B44B107827CA9739009316BD /* GifModel.swift in Sources */,
+				B44B107527CA9299009316BD /* ApiClass.swift in Sources */,
 				FF9415D225EED25A0029E28F /* DetailViewController.swift in Sources */,
 				9A829F02277D7CF7002C03F2 /* APIListResponse.swift in Sources */,
 			);
