@@ -27,6 +27,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .clear
         configureTableView()
+        hideKeyBoardWhenScreenIsTapped()
         configureSerchController()
         gifLoadedOnTheMainThread()
     }
@@ -35,16 +36,6 @@ class MainViewController: UIViewController {
         super.viewDidAppear(animated)
         self.mainViewCell.gifTitle.showAnimatedGradientSkeleton()
         self.mainViewCell.gifTitle.isSkeletonable = true
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
-//            self.mainViewCell.gifTitle.hideSkeleton()
-//        })
-//        
-//      
-//        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
-//            self.mainViewCell.gifImage.hideSkeleton()
-//        })
-
     }
     
     func configureTableView() {

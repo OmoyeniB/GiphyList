@@ -10,8 +10,7 @@ extension MainViewCell {
     func configureGifImage() {
         gifImage.snp.makeConstraints { (make) in
             make.centerY.equalTo(self.contentView)
-            make.width.equalTo(100)
-            make.height.equalTo(100)
+            make.width.height.equalTo(100)
             make.leading.equalToSuperview().inset(20)
         }
     }
@@ -24,6 +23,5 @@ extension MainViewCell {
             make.leading.equalTo(gifImage.snp.trailing).offset(15)
             make.trailing.equalToSuperview().inset(20)
         }
-        
     }
 }

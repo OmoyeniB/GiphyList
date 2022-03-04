@@ -1,6 +1,20 @@
 import UIKit
 import SkeletonView
-//import Skel
+
+extension MainViewController {
+    
+    func gifLoadedOnTheMainThread() {
+        
+        let dataFetchedFromApi = { (fetchGifData: [Giphy]) in
+            DispatchQueue.main.async {
+                self.giphy = fetchGifData
+                self.tableView.reloadData()
+            }
+        }
+        
+        GifNetworkCall.shared.fetchGifData(completionHandler: dataFetchedFromApi)
+    }
+}
 
 extension MainViewController: UITableViewDataSource {
     
@@ -9,40 +23,21 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: MainViewCell.identifier, for: indexPath) as? MainViewCell
         let arrayOfGiphy = giphy[indexPath.row]
         cell?.setup(with: arrayOfGiphy)
         return cell ?? UITableViewCell()
     }
-    
-        func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-           return MainViewCell.identifier
-        }
 }
 
-//extension MainViewController: UITableViewDelegate {
-//
-//        func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//            tableView.deselectRow(at: indexPath, animated: true)
-//    //        let vc = DetailViewController()
-//    //        let nav = UINavigationController(rootViewController: vc)
-//    //        nav.modalPresentationStyle = .fullScreen
-//    //        present(nav, animated: true)
-//        }
-//}
+extension MainViewController: UITableViewDelegate {
 
-extension MainViewController {
-    
-    func gifLoadedOnTheMainThread() {
-        let dataFetchedFromApi = { (fetchGifData: [Giphy]) in
-            DispatchQueue.main.async {
-                self.giphy = fetchGifData
-                self.tableView.reloadData()
-            }
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            
+            tableView.deselectRow(at: indexPath, animated: true)
+            let vc = DetailViewController() as DetailViewController
+            navigationController?.pushViewController(vc, animated: true)
+           
         }
-        GifNetworkCall.shared.fetchGifData(completionHandler: dataFetchedFromApi)
-    }
 }
-
-
-

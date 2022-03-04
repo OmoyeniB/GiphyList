@@ -12,9 +12,11 @@
 		B44B107827CA9739009316BD /* GifModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B107727CA9739009316BD /* GifModel.swift */; };
 		B44B107B27CB0204009316BD /* MainView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B107A27CB0204009316BD /* MainView+Extension.swift */; };
 		B44B107F27CB1787009316BD /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = B44B107E27CB1787009316BD /* SkeletonView */; };
+		B47EE23B27D19BCA00249A29 /* Navgation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47EE23A27D19BCA00249A29 /* Navgation+Extension.swift */; };
+		B47EE23D27D19C5700249A29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47EE23C27D19C5700249A29 /* AppDelegate.swift */; };
+		B48537C227D1167900054E6F /* DetailsView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48537C127D1167900054E6F /* DetailsView+Extension.swift */; };
 		B4F4A99C27C68CF000C8F89E /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4A99B27C68CF000C8F89E /* MainViewCell.swift */; };
 		B4F4A99E27C68E5C00C8F89E /* GifTableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4A99D27C68E5C00C8F89E /* GifTableViewCell+Extension.swift */; };
-		FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B425EECD340029E28F /* AppDelegate.swift */; };
 		FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B625EECD340029E28F /* SceneDelegate.swift */; };
 		FF9415BB25EECD350029E28F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9415BA25EECD350029E28F /* Assets.xcassets */; };
 		FF9415BE25EECD350029E28F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9415BD25EECD350029E28F /* Preview Assets.xcassets */; };
@@ -34,10 +36,12 @@
 		B44B107427CA9299009316BD /* ApiClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClass.swift; sourceTree = "<group>"; };
 		B44B107727CA9739009316BD /* GifModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifModel.swift; sourceTree = "<group>"; };
 		B44B107A27CB0204009316BD /* MainView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainView+Extension.swift"; sourceTree = "<group>"; };
+		B47EE23A27D19BCA00249A29 /* Navgation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navgation+Extension.swift"; sourceTree = "<group>"; };
+		B47EE23C27D19C5700249A29 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Dispo Take Home/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
+		B48537C127D1167900054E6F /* DetailsView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsView+Extension.swift"; sourceTree = "<group>"; };
 		B4F4A99B27C68CF000C8F89E /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		B4F4A99D27C68E5C00C8F89E /* GifTableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GifTableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		FF9415B125EECD340029E28F /* Dispo Take Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dispo Take Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF9415B425EECD340029E28F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF9415B625EECD340029E28F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FF9415BA25EECD350029E28F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF9415BD25EECD350029E28F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -93,7 +97,7 @@
 		B44B107C27CB0CD4009316BD /* App */ = {
 			isa = PBXGroup;
 			children = (
-				FF9415B425EECD340029E28F /* AppDelegate.swift */,
+				B47EE23C27D19C5700249A29 /* AppDelegate.swift */,
 				FF9415B625EECD340029E28F /* SceneDelegate.swift */,
 			);
 			path = App;
@@ -154,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				FF9415D125EED2590029E28F /* DetailViewController.swift */,
+				B48537C127D1167900054E6F /* DetailsView+Extension.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 				FF9415E125EEDC3A0029E28F /* SearchResult.swift */,
 				FF9415E525EEDF380029E28F /* GifApiClient.swift */,
 				9A829F01277D7CF7002C03F2 /* APIListResponse.swift */,
+				B47EE23A27D19BCA00249A29 /* Navgation+Extension.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -253,16 +259,18 @@
 				FF9415F625EEF5760029E28F /* GifInfo.swift in Sources */,
 				FF9415E625EEDF380029E28F /* GifApiClient.swift in Sources */,
 				FF9415D525EED60B0029E28F /* Constants.swift in Sources */,
+				B47EE23B27D19BCA00249A29 /* Navgation+Extension.swift in Sources */,
 				FF9415E225EEDC3A0029E28F /* SearchResult.swift in Sources */,
 				FF9415CB25EED1360029E28F /* MainViewController.swift in Sources */,
 				B4F4A99E27C68E5C00C8F89E /* GifTableViewCell+Extension.swift in Sources */,
 				B4F4A99C27C68CF000C8F89E /* MainViewCell.swift in Sources */,
-				FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */,
 				FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */,
 				B44B107827CA9739009316BD /* GifModel.swift in Sources */,
 				B44B107527CA9299009316BD /* ApiClass.swift in Sources */,
 				B44B107B27CB0204009316BD /* MainView+Extension.swift in Sources */,
 				FF9415D225EED25A0029E28F /* DetailViewController.swift in Sources */,
+				B48537C227D1167900054E6F /* DetailsView+Extension.swift in Sources */,
+				B47EE23D27D19C5700249A29 /* AppDelegate.swift in Sources */,
 				9A829F02277D7CF7002C03F2 /* APIListResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
