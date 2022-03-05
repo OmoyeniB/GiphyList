@@ -1,6 +1,10 @@
 import UIKit
+import Kingfisher
 
 class DetailViewController: UIViewController {
+    
+    var giphID = ""
+    var gifItem: GifItem?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
@@ -13,17 +17,19 @@ class DetailViewController: UIViewController {
     override func loadView() {
         super.loadView()
         view = UIView()
-        view.backgroundColor = .white
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        view.backgroundColor = .systemBackground
+        getGifByID()
     }
     
     lazy var gifImage: UIImageView = {
         var gifImage = UIImageView()
-        gifImage.backgroundColor = .red
+        gifImage.clipsToBounds = true
+        gifImage.contentMode = .scaleAspectFill
         return gifImage
     }()
     
@@ -31,66 +37,45 @@ class DetailViewController: UIViewController {
         var gifTitle = UILabel()
         gifTitle.numberOfLines = 2
         gifTitle.textAlignment = .center
-        gifTitle.text = "Title: Free money cartoon GIF by Spongebob SquarePants"
         return gifTitle
     }()
     
     lazy var sourceLabel: UILabel = {
         var sourceLabel = UILabel()
-        sourceLabel.text = "Source: gifhell.com"
         return sourceLabel
     }()
     
     lazy var ratingsLabel: UILabel = {
         var ratingsLabel = UILabel()
-        ratingsLabel.text = "Rating: g"
         return ratingsLabel
     }()
     
-    @objc func saveTodo() {
-        let newVC = MainViewController()
-        navigationController?.pushViewController(newVC, animated: true)
+    func getGifByID() {
+        let urlString = Constants.getGifByIDURL(id: giphID)
+        print("The URL is: ", urlString)
+        let url = URL(string: urlString)!
+        
+        GifNetworkCall.shared.fetchGifData(url: url, expecting: GifItem.self) { [weak self] result  in
+            switch result {
+                case .success(let item):
+                    DispatchQueue.main.async {
+                        guard let urlString = item.data?.images?.original?.url else { return }
+                        guard let url = URL(string: urlString) else { return }
+                        self?.gifImage.kf.setImage(with: url)
+                        
+                        if item.data?.title == nil {
+                            self?.gifTitle.text = "This is a default"
+                        }
+                        else{
+                            self?.gifTitle.text = item.data?.title
+                        }
+                        self?.sourceLabel.text = item.data?.source_tld
+                        self?.ratingsLabel.text = item.data?.rating
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//func gifLoadedOnTheMainThread() {
-//    let dataFetchedFromApi = { (fetchGifData: [Giphy]) in
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 4, execute: {
-//            self.giphy = fetchGifData
-//            self.tableView.reloadData()
-//        })
-//    }
-//    GifNetworkCall.shared.fetchGifData(completionHandler: dataFetchedFromApi)
-//}
-//
-//}
-
-
-//func gifLoadedOnTheMainThread() {
-//    let dataFetchedFromApi = { (fetchGifData: [Giphy]) in
-//        DispatchQueue.main.async {
-//            self.giphy = fetchGifData
-//            self.tableView.reloadData()
-//        }
-//    }
-//    GifNetworkCall.shared.fetchGifData(completionHandler: dataFetchedFromApi)
-//}
-//
-//}

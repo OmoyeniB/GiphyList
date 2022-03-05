@@ -2,11 +2,11 @@ import UIKit
 import SkeletonView
 
 class MainViewController: UIViewController {
-    
+
     var mainViewCell = MainViewCell()
     var tableView = UITableView()
     var searchController = UISearchController()
-    var giphy = [Giphy]()
+    var gifItem: GifModel?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
@@ -19,23 +19,20 @@ class MainViewController: UIViewController {
     override func loadView() {
         super.loadView()
         view = UIView()
-        view.backgroundColor = .clear
-        loadTableView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .clear
+        loadTableView()
         configureTableView()
-        hideKeyBoardWhenScreenIsTapped()
         configureSerchController()
         gifLoadedOnTheMainThread()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.mainViewCell.gifTitle.showAnimatedGradientSkeleton()
-        self.mainViewCell.gifTitle.isSkeletonable = true
+//        self.mainViewCell.gifTitle.showAnimatedGradientSkeleton()
+//        self.mainViewCell.gifTitle.isSkeletonable = true
     }
     
     func configureTableView() {
@@ -54,6 +51,7 @@ class MainViewController: UIViewController {
             make.edges.equalToSuperview()
         })
     }
+    
     func configureSerchController() {
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.autocapitalizationType = .none
