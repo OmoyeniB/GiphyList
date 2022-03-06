@@ -22,7 +22,6 @@ class MainViewCell: UITableViewCell {
     
     private let gifImage: UIImageView = {
         let gifImage = UIImageView()
-        gifImage.backgroundColor = .red
         gifImage.clipsToBounds = true
         
         gifImage.isSkeletonable = true
