@@ -9,24 +9,7 @@ final class GifNetworkCall {
         case invalidUrl
         case invalidData
     }
-//    public func fetchGifData(urlString: String, completionHandler: @escaping ([Giphy]) -> Void) {
-//
-//        guard let url = URL(string: urlString) else {return}
-//
-//        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-//
-//            guard let data = data else {
-//                return
-//            }
-//            guard let gifData = try? JSONDecoder().decode(GifModel.self, from: data) else {
-//                return
-//            }
-//            completionHandler(gifData.data)
-//
-//        }
-//        task.resume()
-//    }
-    
+
     public func fetchGifData<T: Codable>(url: URL?, expecting: T.Type, completionHandler: @escaping (Result<T, Error>) -> Void) {
         guard let url = url else {
             completionHandler(.failure(CustomError.invalidUrl))

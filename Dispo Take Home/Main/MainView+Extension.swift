@@ -6,16 +6,19 @@ let vc = DetailViewController()
 extension MainViewController {
     
     func gifLoadedOnTheMainThread() {
+//        gifItem?.data.removeAll()
         let url = URL(string: Constants.getTrendingGifURL)!
         GifNetworkCall.shared.fetchGifData(url: url, expecting: GifModel.self) {
             [weak self] result in
             switch result {
                 case .success(let giphy):
                     DispatchQueue.main.async {
+                        self?.tableView.refreshControl?.endRefreshing()
                         self?.gifItem = giphy
                         self?.tableView.reloadData()
                     }
                 case .failure(let error):
+                    self?.ifNetworkIsOutOfCoverageDisplayErrorMessage()
                     print(error)
             }
             
