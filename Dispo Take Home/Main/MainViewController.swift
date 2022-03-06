@@ -29,15 +29,8 @@ class MainViewController: UIViewController {
         gifLoadedOnTheMainThread()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        self.mainViewCell.gifTitle.showAnimatedGradientSkeleton()
-//        self.mainViewCell.gifTitle.isSkeletonable = true
-    }
-    
     func configureTableView() {
         tableView.rowHeight = 120
-        tableView.keyboardDismissMode = .onDrag
         tableView.separatorColor = .clear
         navigationItem.searchController = searchController
     }
@@ -47,6 +40,7 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(MainViewCell.self, forCellReuseIdentifier: MainViewCell.identifier)
+        
         tableView.snp.makeConstraints({ make in
             make.edges.equalToSuperview()
         })
@@ -54,8 +48,10 @@ class MainViewController: UIViewController {
     
     func configureSerchController() {
         searchController.hidesNavigationBarDuringPresentation = false
+        navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.autocapitalizationType = .none
         searchController.searchBar.autocorrectionType = .no
         searchController.searchBar.placeholder = "Type to search ...."
+        searchController.automaticallyShowsCancelButton = false
     }    
 }

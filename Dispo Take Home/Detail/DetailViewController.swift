@@ -30,23 +30,53 @@ class DetailViewController: UIViewController {
         var gifImage = UIImageView()
         gifImage.clipsToBounds = true
         gifImage.contentMode = .scaleAspectFill
+        
+        gifImage.isSkeletonable = true
+        gifImage.showAnimatedGradientSkeleton()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+            gifImage.hideSkeleton()
+        })
         return gifImage
+    }()
+    
+    lazy var gifTitleLabel:  UILabel = {
+       var gifTitleLabel = UILabel()
+        gifTitleLabel.text = "Title: "
+        return gifTitleLabel
     }()
     
     lazy var gifTitle: UILabel = {
         var gifTitle = UILabel()
         gifTitle.numberOfLines = 2
         gifTitle.textAlignment = .center
+        
+        gifTitle.isSkeletonable = true
+        gifTitle.showAnimatedGradientSkeleton()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
+            gifTitle.hideSkeleton()
+        })
         return gifTitle
     }()
     
     lazy var sourceLabel: UILabel = {
         var sourceLabel = UILabel()
+        
+        sourceLabel.isSkeletonable = true
+        sourceLabel.showAnimatedGradientSkeleton()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
+            sourceLabel.hideSkeleton()
+        })
         return sourceLabel
     }()
     
     lazy var ratingsLabel: UILabel = {
         var ratingsLabel = UILabel()
+        
+        ratingsLabel.isSkeletonable = true
+        ratingsLabel.showAnimatedGradientSkeleton()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
+            ratingsLabel.hideSkeleton()
+        })
         return ratingsLabel
     }()
     

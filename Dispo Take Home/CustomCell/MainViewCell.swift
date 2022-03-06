@@ -22,20 +22,28 @@ class MainViewCell: UITableViewCell {
     
     private let gifImage: UIImageView = {
         let gifImage = UIImageView()
-//        gifImage.isSkeletonable = true
-        gifImage.showAnimatedGradientSkeleton()
         gifImage.backgroundColor = .red
         gifImage.clipsToBounds = true
-        gifImage.image = UIImage(named: "test")
+        
+        gifImage.isSkeletonable = true
+        gifImage.showAnimatedGradientSkeleton()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+            gifImage.hideSkeleton()
+        })
         return gifImage
     }()
     
     private let gifTitle: UILabel = {
         let gifTitle = UILabel()
         gifTitle.showAnimatedGradientSkeleton()
-        gifTitle.text = "Title goes here"
         gifTitle.numberOfLines = 0
         gifTitle.adjustsFontSizeToFitWidth = false
+        
+        gifTitle.isSkeletonable = true
+        gifTitle.showAnimatedGradientSkeleton()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
+            gifTitle.hideSkeleton()
+        })
         return gifTitle
     }()
     
