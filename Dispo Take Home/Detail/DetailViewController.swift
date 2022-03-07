@@ -41,7 +41,7 @@ class DetailViewController: UIViewController {
     
     lazy var gifTitleLabel:  UILabel = {
        var gifTitleLabel = UILabel()
-        gifTitleLabel.text = "Title: "
+        gifTitleLabel.text = "Title:"
         return gifTitleLabel
     }()
     
@@ -58,6 +58,20 @@ class DetailViewController: UIViewController {
         return gifTitle
     }()
     
+    lazy var titleStackView: UIStackView = {
+       var titleStackView = UIStackView()
+        titleStackView.axis = .horizontal
+        titleStackView.addArrangedSubview(gifTitleLabel)
+        titleStackView.addArrangedSubview(gifTitle)
+        return titleStackView
+    }()
+    
+    lazy var gifSourceLabel:  UILabel = {
+       var gifTitleLabel = UILabel()
+        gifTitleLabel.text = "Source:"
+        return gifTitleLabel
+    }()
+    
     lazy var sourceLabel: UILabel = {
         var sourceLabel = UILabel()
         
@@ -69,6 +83,21 @@ class DetailViewController: UIViewController {
         return sourceLabel
     }()
     
+    lazy var sourceStackView: UIStackView = {
+       var sourceStackView = UIStackView()
+        sourceStackView.axis = .horizontal
+      sourceStackView.addArrangedSubview(gifSourceLabel)
+        sourceStackView.addArrangedSubview(sourceLabel)
+        return sourceStackView
+    }()
+    
+    
+    lazy var gifRatingsLabel:  UILabel = {
+       var gifTitleLabel = UILabel()
+        gifTitleLabel.text = "Rating:"
+        return gifTitleLabel
+    }()
+    
     lazy var ratingsLabel: UILabel = {
         var ratingsLabel = UILabel()
         
@@ -78,6 +107,16 @@ class DetailViewController: UIViewController {
             ratingsLabel.hideSkeleton()
         })
         return ratingsLabel
+    }()
+    
+    lazy var ratingStackView: UIStackView = {
+       var ratingStackView = UIStackView()
+        ratingStackView.axis = .horizontal
+//        ratingStackView.distribution = .equalCentering
+        ratingStackView.spacing = 12
+        ratingStackView.addArrangedSubview(gifRatingsLabel)
+        ratingStackView.addArrangedSubview(ratingsLabel)
+        return ratingStackView
     }()
     
     func getGifByID() {
@@ -94,7 +133,7 @@ class DetailViewController: UIViewController {
                         self?.gifImage.kf.setImage(with: url)
                         
                         if item.data?.title == nil {
-                            self?.gifTitle.text = "This is a default"
+                            self?.gifTitle.text = "This is a default title"
                         }
                         else{
                             self?.gifTitle.text = item.data?.title
@@ -103,6 +142,7 @@ class DetailViewController: UIViewController {
                         self?.ratingsLabel.text = item.data?.rating
                     }
                 case .failure(let error):
+                    self?.ifNetworkIsOutOfCoverageDisplayErrorMessage()
                     print(error.localizedDescription)
             }
         }
