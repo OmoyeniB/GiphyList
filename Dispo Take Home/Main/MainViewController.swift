@@ -1,14 +1,16 @@
 import UIKit
 import SkeletonView
+import XCTest
 
 class MainViewController: UIViewController {
+    
     
     var timer: Timer?
     var mainViewCell = MainViewCell()
     var tableView = UITableView()
     var searchController = UISearchController()
     var gifItem: GifModel?
-    var searchItem: SearchResult?
+    var searchItem: Giphy?
     var UrlOfTextSearched = ""
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
@@ -21,6 +23,7 @@ class MainViewController: UIViewController {
     override func loadView() {
         super.loadView()
         view = UIView()
+        self.view = view
     }
     
     override func viewDidLoad() {
@@ -29,18 +32,28 @@ class MainViewController: UIViewController {
         configureTableView()
         configureSerchController()
         gifLoadedOnTheMainThread()
-        
+        refreshControl()
+        navigationItem.searchController = searchController
+        searchController.searchResultsUpdater = self
+    }
+    
+    func refreshControl() {
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
     }
+    
     @objc func didPullToRefresh() {
-        gifLoadedOnTheMainThread()
+        print("refreshing started")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+            self.tableView.refreshControl?.endRefreshing()
+//            self.gifLoadedOnTheMainThread()
+        })
     }
     
     func configureTableView() {
         tableView.rowHeight = 120
         tableView.separatorColor = .clear
-        navigationItem.searchController = searchController
+        
     }
     
     func loadTableView() {
@@ -57,61 +70,77 @@ class MainViewController: UIViewController {
     func configureSerchController() {
         searchController.hidesNavigationBarDuringPresentation = false
         navigationItem.hidesSearchBarWhenScrolling = false
+//        navigationItem.searchController = searchController
         searchController.searchBar.autocapitalizationType = .none
         searchController.searchBar.autocorrectionType = .no
         searchController.searchBar.placeholder = "Type to search ...."
         searchController.automaticallyShowsCancelButton = false
         searchController.delegate = self
-    }    
+    }
 }
 
-extension MainViewController: UISearchControllerDelegate {
-   
+extension MainViewController: UISearchControllerDelegate, UISearchResultsUpdating {
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange SearchText: String) {
-        if let textInputed = searchController.searchBar.text{
-            timer?.invalidate()
-            timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: {
-                (_) in
-                // in this code block, I'll call my network layer
-                let urlString = Constants.getGifSearched(q: self.UrlOfTextSearched)
-                let url = URL(string: urlString)
-                print("The url serached: \(urlString)")
-                GifNetworkCall.shared.fetchGifData(url: url, expecting: SearchResult.self) {
-                    [weak self] result in
-                    switch result {
-                        case .success(let giphy):
-                            DispatchQueue.main.async {
-                                self?.searchItem = giphy
-                                self?.tableView.reloadData()
-                            }
-                        case .failure(let error):
-                            self?.ifNetworkIsOutOfCoverageDisplayErrorMessage()
-                            print(error)
-                    }
-                }
-            })
-        }
+//
+        print(SearchText)
+//
+        
     }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        print("The search text is: \(text)")
+        let urlString = Constants.getGifSearched(searchText: text)
+        
+        let url = URL(string: urlString)
+        print("The url is: \(url)")
+        GifNetworkCall.shared.fetchGifData(url: url, expecting: GifModel.self) { [weak self] result in
+            switch result {
+                
+                case .success(let giphy):
+                    print(giphy.data, "This is data")
+                    DispatchQueue.main.async {
+//                    self?.searchItem = giphy
+                        self?.gifItem = giphy
+                    self?.tableView.reloadData()
+                                               }
+                case .failure(let error):
+                    
+//                    self?.ifNetworkIsOutOfCoverageDisplayErrorMessage()
+                    print(error.localizedDescription)
+            }
+        }
+//        if let textInputed = searchController.searchBar.text {
+        //            timer?.invalidate()
+        //            timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: {
+        //                (_) in
+        //
+        //                let urlString = Constants.getGifSearched(q: self.UrlOfTextSearched)
+        //                let url = URL(string: urlString)
+        //                print("The url serached: \(urlString)")
+        //
+        //                GifNetworkCall.shared.fetchGifSearch(url: url ,description: textInputed, expecting: SearchResult.self)
+        //                {
+        //                    [weak self] result in
+        //                    switch result {
+        //                        case .success(let giphy):
+        //
+        //                            DispatchQueue.main.async {
+        //                                self?.searchItem = giphy
+        //                                self?.tableView.reloadData()
+        //                            }
+        //
+        //                        case .failure(let error):
+        //                            self?.ifNetworkIsOutOfCoverageDisplayErrorMessage()
+        //                            print(error)
+        //                    }
+        //                }
+        //            })
+        //        }
+        //
+    }
+    
 }
 
-extension UIViewController {
-    
-    public func popUpAlert(title: String, message: String, alertStyle: UIAlertController.Style,
-                           actionTitles: [String], actionStyles: [UIAlertAction.Style], actions: [((UIAlertAction) -> Void)]){
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: alertStyle)
-        for(index, indexTitle) in actionTitles.enumerated() {
-            let action = UIAlertAction(title: indexTitle, style: actionStyles[index], handler: actions[index])
-            alertController.addAction(action)
-        }
-        self.present(alertController, animated: true)
-    }
-    
-    func ifNetworkIsOutOfCoverageDisplayErrorMessage() {
-        DispatchQueue.main.async {
-            self.popUpAlert(title: "Alert", message: "Oops!.. something went wrong. Please check your connection and try again", alertStyle: .alert,
-                       actionTitles: ["OK"], actionStyles: [.default], actions: [ { _ in
-                print("User out of network coverage")
-            }])
-        }
-    }
-}
+
