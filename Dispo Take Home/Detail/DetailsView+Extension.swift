@@ -3,101 +3,103 @@ import Foundation
 extension DetailViewController {
     
     func addToView() {
-        view.addSubview(gifImage)
-        view.addSubview(titleStackView)
-        view.addSubview(sourceStackView)
-        view.addSubview(ratingStackView)
+        view.addSubview(scrollView)
+        scrollView.addSubview(containerView)
+        containerView.addSubview(gifImage)
+        containerView.addSubview(gifTitleLabel)
+        containerView.addSubview(gifTitle)
+        containerView.addSubview(sourceStackView)
+        containerView.addSubview(gifRatingsLabel)
+        containerView.addSubview(ratingsLabel)
     }
     
     func configureView() {
         title = "Gif Info Details"
         addToView()
+        configureScrollView()
+        configureContainer()
         addConstraintsToGifImage()
-        configureTitleStackView()
         addConstraintsToGifTitleLabel()
         addConstraintsToGifTitle()
-        configureSourceStackView()
-        addConstraintToGifSourceLabel()
+        addConstraintsToGifSourceLabel()
         addConstraintsToSourceLabel()
-        addConstraintsToratingStackView()
-        addConstraintToRatingsLabel()
-        addConstraintsToRatings()
+        addConstraintsToGifRatingsLabel()
+        configureSourceStackView()
+        addConstraintsToRatingsLabel()
+    }
+    
+    func configureScrollView() {
+        scrollView.snp.makeConstraints({ make in
+            make.edges.equalToSuperview()
+        })
+    }
+    
+    func configureContainer() {
+        containerView.snp.makeConstraints({ make in
+            make.top.bottom.equalTo(scrollView)
+            make.left.right.equalTo(view)
+            make.centerX.equalTo(scrollView)
+            make.centerY.equalTo(scrollView)
+        })
     }
     
     func addConstraintsToGifImage() {
+        
         gifImage.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(120)
-            make.leading.equalToSuperview().offset(15)
-            make.trailing.equalToSuperview().inset(15)
+            make.top.equalTo(containerView).offset(40)
+            make.leading.equalTo(containerView).offset(20)
+            make.trailing.equalTo(containerView).inset(20)
             make.height.equalTo(400)
         }
     }
     
-    func configureTitleStackView() {
-        titleStackView.snp.makeConstraints({make in
-            make.top.equalTo(gifImage.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().inset(20)
-        })
-    }
-    
-    //gifTitleLabel gifSourceLabel gifRatingsLabel
     func addConstraintsToGifTitleLabel() {
         gifTitleLabel.snp.makeConstraints({ make in
-            make.top.equalTo(titleStackView)
-            make.leading.equalTo(titleStackView)
+            make.top.equalTo(gifImage.snp.bottomMargin).offset(20)
+            make.leading.equalTo(containerView).offset(25)
         })
     }
     
     func addConstraintsToGifTitle() {
         gifTitle.snp.makeConstraints { make in
-            make.top.equalTo(titleStackView)
-            make.leading.equalTo(gifTitleLabel.snp.trailing).offset(3)
-            make.trailing.equalTo(titleStackView)
+            make.top.equalTo(gifImage.snp.bottomMargin).offset(20)
+            make.leading.equalTo(gifTitleLabel.snp.trailingMargin).offset(10)
+            make.trailing.equalTo(containerView).inset(20)
         }
     }
+    
     func configureSourceStackView() {
-        sourceStackView.snp.makeConstraints({make in
-            make.top.equalTo(titleStackView.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().inset(20)
-        })
-    }
-//
-    func addConstraintToGifSourceLabel() {
-        gifSourceLabel.snp.makeConstraints({ make in
-            make.top.equalTo(sourceStackView)
-            make.leading.equalTo(sourceStackView)
-        })
-    }
-    func addConstraintsToSourceLabel() {
-        sourceLabel.snp.makeConstraints { make in
-            make.top.equalTo(sourceStackView)
-            make.leading.equalTo(gifSourceLabel.snp.trailing).offset(3)
-            make.trailing.equalTo(sourceStackView)
-        }
-    }
-    //ratingStackView
-    func addConstraintsToratingStackView() {
-        ratingStackView.snp.makeConstraints({make in
-            make.top.equalTo(sourceStackView.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().inset(20)
-        })
-    }
-
-    func addConstraintToRatingsLabel() {
-       gifRatingsLabel.snp.makeConstraints({ make in
-            make.top.equalTo(ratingStackView)
-            make.leading.equalTo(ratingStackView)
+        sourceStackView.snp.makeConstraints({ make in
+            make.top.equalTo(gifTitle.snp.bottomMargin).offset(20)
+            make.centerX.equalTo(containerView.snp.centerX)
         })
     }
     
-    func addConstraintsToRatings() {
+    func addConstraintsToGifSourceLabel() {
+        gifSourceLabel.snp.makeConstraints({ make in
+            make.leadingMargin.equalTo(sourceStackView)
+            make.top.equalTo(sourceStackView)
+        })
+    }
+    
+    func addConstraintsToSourceLabel() {
+        sourceLabel.snp.makeConstraints { make in
+            make.top.equalTo(sourceStackView)
+            make.leading.equalTo(gifSourceLabel.snp.trailing).offset(10)
+        }
+    }
+    
+    func addConstraintsToGifRatingsLabel() {
+        gifRatingsLabel.snp.makeConstraints({ make in
+            make.top.equalTo(sourceStackView.snp.bottomMargin).offset(20)
+            make.centerX.equalTo(containerView.snp.centerX)
+        })
+    }
+    
+    func addConstraintsToRatingsLabel() {
         ratingsLabel.snp.makeConstraints { make in
-            make.top.equalTo(ratingStackView)
-            make.leading.equalTo(gifRatingsLabel.snp.trailing).offset(3)
-            make.trailing.equalTo(ratingStackView)
+            make.top.equalTo(sourceStackView.snp.bottomMargin).offset(20)
+            make.leading.equalTo(gifRatingsLabel.snp.trailing).offset(5)
         }
     }
     

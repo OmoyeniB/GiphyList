@@ -24,7 +24,37 @@ class DetailViewController: UIViewController {
         configureView()
         view.backgroundColor = .systemBackground
         getGifByID()
+        refreshControl()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height)
+    }
+    
+    func refreshControl() {
+        scrollView.refreshControl = UIRefreshControl()
+        scrollView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+    }
+    
+    @objc func didPullToRefresh() {
+        print("refreshing started")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+            self.scrollView.refreshControl?.endRefreshing()
+            self.getGifByID()
+        })
+    }
+    
+    lazy var scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.autoresizingMask = .flexibleHeight
+        view.bounces = true
+        return view
+    }()
+    
+    lazy var containerView: UIView = {
+        let view = UIView()
+        return view
+    }()
     
     lazy var gifImage: UIImageView = {
         var gifImage = UIImageView()
@@ -33,14 +63,14 @@ class DetailViewController: UIViewController {
         
         gifImage.isSkeletonable = true
         gifImage.showAnimatedGradientSkeleton()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
             gifImage.hideSkeleton()
         })
         return gifImage
     }()
     
-    lazy var gifTitleLabel:  UILabel = {
-       var gifTitleLabel = UILabel()
+    lazy var gifTitleLabel: UILabel = {
+        var gifTitleLabel = UILabel()
         gifTitleLabel.text = "Title:"
         return gifTitleLabel
     }()
@@ -52,22 +82,14 @@ class DetailViewController: UIViewController {
         
         gifTitle.isSkeletonable = true
         gifTitle.showAnimatedGradientSkeleton()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
             gifTitle.hideSkeleton()
         })
         return gifTitle
     }()
     
-    lazy var titleStackView: UIStackView = {
-       var titleStackView = UIStackView()
-        titleStackView.axis = .horizontal
-        titleStackView.addArrangedSubview(gifTitleLabel)
-        titleStackView.addArrangedSubview(gifTitle)
-        return titleStackView
-    }()
-    
     lazy var gifSourceLabel:  UILabel = {
-       var gifTitleLabel = UILabel()
+        var gifTitleLabel = UILabel()
         gifTitleLabel.text = "Source:"
         return gifTitleLabel
     }()
@@ -84,16 +106,16 @@ class DetailViewController: UIViewController {
     }()
     
     lazy var sourceStackView: UIStackView = {
-       var sourceStackView = UIStackView()
+        var sourceStackView = UIStackView()
         sourceStackView.axis = .horizontal
-      sourceStackView.addArrangedSubview(gifSourceLabel)
+        sourceStackView.spacing = 10
+        sourceStackView.addArrangedSubview(gifSourceLabel)
         sourceStackView.addArrangedSubview(sourceLabel)
         return sourceStackView
     }()
     
-    
     lazy var gifRatingsLabel:  UILabel = {
-       var gifTitleLabel = UILabel()
+        var gifTitleLabel = UILabel()
         gifTitleLabel.text = "Rating:"
         return gifTitleLabel
     }()
@@ -109,16 +131,6 @@ class DetailViewController: UIViewController {
         return ratingsLabel
     }()
     
-    lazy var ratingStackView: UIStackView = {
-       var ratingStackView = UIStackView()
-        ratingStackView.axis = .horizontal
-//        ratingStackView.distribution = .equalCentering
-        ratingStackView.spacing = 12
-        ratingStackView.addArrangedSubview(gifRatingsLabel)
-        ratingStackView.addArrangedSubview(ratingsLabel)
-        return ratingStackView
-    }()
-    
     func getGifByID() {
         let urlString = Constants.getGifByIDURL(id: giphID)
         print("The URL is: ", urlString)
@@ -127,7 +139,9 @@ class DetailViewController: UIViewController {
         GifNetworkCall.shared.fetchGifData(url: url, expecting: GifItem.self) { [weak self] result  in
             switch result {
                 case .success(let item):
+                    
                     DispatchQueue.main.async {
+                        
                         guard let urlString = item.data?.images?.original?.url else { return }
                         guard let url = URL(string: urlString) else { return }
                         self?.gifImage.kf.setImage(with: url)
@@ -141,6 +155,7 @@ class DetailViewController: UIViewController {
                         self?.sourceLabel.text = item.data?.source_tld
                         self?.ratingsLabel.text = item.data?.rating
                     }
+                    
                 case .failure(let error):
                     self?.ifNetworkIsOutOfCoverageDisplayErrorMessage()
                     print(error.localizedDescription)

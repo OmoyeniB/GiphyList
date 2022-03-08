@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A829F02277D7CF7002C03F2 /* APIListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A829F01277D7CF7002C03F2 /* APIListResponse.swift */; };
 		B44B107527CA9299009316BD /* ApiClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B107427CA9299009316BD /* ApiClass.swift */; };
 		B44B107827CA9739009316BD /* GifModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B107727CA9739009316BD /* GifModel.swift */; };
 		B44B107B27CB0204009316BD /* MainView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B107A27CB0204009316BD /* MainView+Extension.swift */; };
-		B44B107F27CB1787009316BD /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = B44B107E27CB1787009316BD /* SkeletonView */; };
 		B46CA7A327D2B7DC00CA985A /* GifItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA7A227D2B7DC00CA985A /* GifItem.swift */; };
-		B46CA7A727D3750400CA985A /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B46CA7A627D3750400CA985A /* IQKeyboardManagerSwift */; };
-		B46CA7A927D3778400CA985A /* IQKeyboardSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA7A827D3778400CA985A /* IQKeyboardSetUp.swift */; };
+		B46CA7B227D67C0100CA985A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA7B127D67C0100CA985A /* UIViewController+Extension.swift */; };
+		B46CA7B727D68A9100CA985A /* GiphyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA7B627D68A9100CA985A /* GiphyView.swift */; };
+		B46CA7B927D6BE3600CA985A /* RefreshData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA7B827D6BE3500CA985A /* RefreshData.swift */; };
+		B46CA7C127D78F5200CA985A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B46CA7C027D78F5200CA985A /* SnapKit */; };
+		B46CA7C327D78F8E00CA985A /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = B46CA7C227D78F8E00CA985A /* SkeletonView */; };
+		B46CA7C527D78FE600CA985A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B46CA7C427D78FE600CA985A /* Kingfisher */; };
+		B46CA7C727D78FF500CA985A /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B46CA7C627D78FF500CA985A /* IQKeyboardManagerSwift */; };
+		B46CA7CF27D7966C00CA985A /* Dispo_Take_HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA7CE27D7966C00CA985A /* Dispo_Take_HomeTests.swift */; };
 		B47EE23D27D19C5700249A29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47EE23C27D19C5700249A29 /* AppDelegate.swift */; };
 		B48537C227D1167900054E6F /* DetailsView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48537C127D1167900054E6F /* DetailsView+Extension.swift */; };
 		B4F4A99C27C68CF000C8F89E /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4A99B27C68CF000C8F89E /* MainViewCell.swift */; };
@@ -24,22 +28,31 @@
 		FF9415BE25EECD350029E28F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9415BD25EECD350029E28F /* Preview Assets.xcassets */; };
 		FF9415C125EECD350029E28F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF9415BF25EECD350029E28F /* LaunchScreen.storyboard */; };
 		FF9415CB25EED1360029E28F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415CA25EED1360029E28F /* MainViewController.swift */; };
-		FF9415CF25EED15B0029E28F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FF9415CE25EED15B0029E28F /* SnapKit */; };
 		FF9415D225EED25A0029E28F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415D125EED2590029E28F /* DetailViewController.swift */; };
 		FF9415D525EED60B0029E28F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415D425EED60B0029E28F /* Constants.swift */; };
-		FF9415DF25EEDC000029E28F /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FF9415DE25EEDC000029E28F /* KingfisherSwiftUI */; };
-		FF9415E225EEDC3A0029E28F /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415E125EEDC3A0029E28F /* SearchResult.swift */; };
-		FF9415E625EEDF380029E28F /* GifApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415E525EEDF380029E28F /* GifApiClient.swift */; };
-		FF9415F625EEF5760029E28F /* GifInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415F525EEF5760029E28F /* GifInfo.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B46CA7D027D7966C00CA985A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF9415A925EECD340029E28F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF9415B025EECD340029E28F;
+			remoteInfo = "Dispo Take Home";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		9A829F01277D7CF7002C03F2 /* APIListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIListResponse.swift; sourceTree = "<group>"; };
 		B44B107427CA9299009316BD /* ApiClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClass.swift; sourceTree = "<group>"; };
 		B44B107727CA9739009316BD /* GifModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifModel.swift; sourceTree = "<group>"; };
 		B44B107A27CB0204009316BD /* MainView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainView+Extension.swift"; sourceTree = "<group>"; };
 		B46CA7A227D2B7DC00CA985A /* GifItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifItem.swift; sourceTree = "<group>"; };
-		B46CA7A827D3778400CA985A /* IQKeyboardSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IQKeyboardSetUp.swift; sourceTree = "<group>"; };
+		B46CA7B127D67C0100CA985A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		B46CA7B627D68A9100CA985A /* GiphyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyView.swift; sourceTree = "<group>"; };
+		B46CA7B827D6BE3500CA985A /* RefreshData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshData.swift; sourceTree = "<group>"; };
+		B46CA7BB27D78C0500CA985A /* libswiftWebKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWebKit.tbd; path = usr/lib/swift/libswiftWebKit.tbd; sourceTree = SDKROOT; };
+		B46CA7CC27D7966C00CA985A /* Dispo Take HomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dispo Take HomeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B46CA7CE27D7966C00CA985A /* Dispo_Take_HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispo_Take_HomeTests.swift; sourceTree = "<group>"; };
 		B47EE23C27D19C5700249A29 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Dispo Take Home/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		B48537C127D1167900054E6F /* DetailsView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsView+Extension.swift"; sourceTree = "<group>"; };
 		B4F4A99B27C68CF000C8F89E /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
@@ -53,20 +66,24 @@
 		FF9415CA25EED1360029E28F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FF9415D125EED2590029E28F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FF9415D425EED60B0029E28F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		FF9415E125EEDC3A0029E28F /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
-		FF9415E525EEDF380029E28F /* GifApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifApiClient.swift; sourceTree = "<group>"; };
-		FF9415F525EEF5760029E28F /* GifInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B46CA7C927D7966C00CA985A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FF9415AE25EECD340029E28F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF9415DF25EEDC000029E28F /* KingfisherSwiftUI in Frameworks */,
-				B46CA7A727D3750400CA985A /* IQKeyboardManagerSwift in Frameworks */,
-				B44B107F27CB1787009316BD /* SkeletonView in Frameworks */,
-				FF9415CF25EED15B0029E28F /* SnapKit in Frameworks */,
+				B46CA7C527D78FE600CA985A /* Kingfisher in Frameworks */,
+				B46CA7C727D78FF500CA985A /* IQKeyboardManagerSwift in Frameworks */,
+				B46CA7C327D78F8E00CA985A /* SkeletonView in Frameworks */,
+				B46CA7C127D78F5200CA985A /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +93,7 @@
 		B44B107327CA927C009316BD /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
+				B46CA7B827D6BE3500CA985A /* RefreshData.swift */,
 				B44B107427CA9299009316BD /* ApiClass.swift */,
 			);
 			path = NetworkServices;
@@ -104,16 +122,65 @@
 			children = (
 				B47EE23C27D19C5700249A29 /* AppDelegate.swift */,
 				FF9415B625EECD340029E28F /* SceneDelegate.swift */,
-				B46CA7A827D3778400CA985A /* IQKeyboardSetUp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		B46CA7AF27D6467F00CA985A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B46CA7B027D6469400CA985A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B46CA7B127D67C0100CA985A /* UIViewController+Extension.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B46CA7B327D6891700CA985A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B46CA7B627D68A9100CA985A /* GiphyView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B46CA7BA27D78C0500CA985A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B46CA7BB27D78C0500CA985A /* libswiftWebKit.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B46CA7CD27D7966C00CA985A /* Dispo Take HomeTests */ = {
+			isa = PBXGroup;
+			children = (
+				B46CA7CE27D7966C00CA985A /* Dispo_Take_HomeTests.swift */,
+			);
+			path = "Dispo Take HomeTests";
+			sourceTree = "<group>";
+		};
+		B46CA7D527D817ED00CA985A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FF9415CA25EED1360029E28F /* MainViewController.swift */,
+				B44B107A27CB0204009316BD /* MainView+Extension.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		FF9415A825EECD340029E28F = {
 			isa = PBXGroup;
 			children = (
 				FF9415B325EECD340029E28F /* Dispo Take Home */,
+				B46CA7CD27D7966C00CA985A /* Dispo Take HomeTests */,
 				FF9415B225EECD340029E28F /* Products */,
+				B46CA7BA27D78C0500CA985A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				FF9415B125EECD340029E28F /* Dispo Take Home.app */,
+				B46CA7CC27D7966C00CA985A /* Dispo Take HomeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,9 +196,10 @@
 		FF9415B325EECD340029E28F /* Dispo Take Home */ = {
 			isa = PBXGroup;
 			children = (
+				B46CA7B027D6469400CA985A /* View */,
+				B46CA7AF27D6467F00CA985A /* ViewModel */,
 				B44B107C27CB0CD4009316BD /* App */,
 				B44B107627CA971D009316BD /* Model */,
-				B44B107927CAC095009316BD /* CustomCell */,
 				FF9415E825EEEA4C0029E28F /* Main */,
 				FF9415EA25EEEA510029E28F /* Detail */,
 				FF9415EC25EEEA560029E28F /* Util */,
@@ -153,8 +222,9 @@
 		FF9415E825EEEA4C0029E28F /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				FF9415CA25EED1360029E28F /* MainViewController.swift */,
-				B44B107A27CB0204009316BD /* MainView+Extension.swift */,
+				B46CA7D527D817ED00CA985A /* Controller */,
+				B46CA7B327D6891700CA985A /* View */,
+				B44B107927CAC095009316BD /* CustomCell */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -171,12 +241,8 @@
 		FF9415EC25EEEA560029E28F /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				B44B107327CA927C009316BD /* NetworkServices */,
 				FF9415D425EED60B0029E28F /* Constants.swift */,
-				FF9415F525EEF5760029E28F /* GifInfo.swift */,
-				FF9415E125EEDC3A0029E28F /* SearchResult.swift */,
-				FF9415E525EEDF380029E28F /* GifApiClient.swift */,
-				9A829F01277D7CF7002C03F2 /* APIListResponse.swift */,
+				B44B107327CA927C009316BD /* NetworkServices */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -184,6 +250,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B46CA7CB27D7966C00CA985A /* Dispo Take HomeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B46CA7D427D7966C00CA985A /* Build configuration list for PBXNativeTarget "Dispo Take HomeTests" */;
+			buildPhases = (
+				B46CA7C827D7966C00CA985A /* Sources */,
+				B46CA7C927D7966C00CA985A /* Frameworks */,
+				B46CA7CA27D7966C00CA985A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B46CA7D127D7966C00CA985A /* PBXTargetDependency */,
+			);
+			name = "Dispo Take HomeTests";
+			productName = "Dispo Take HomeTests";
+			productReference = B46CA7CC27D7966C00CA985A /* Dispo Take HomeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FF9415B025EECD340029E28F /* Dispo Take Home */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF9415C525EECD350029E28F /* Build configuration list for PBXNativeTarget "Dispo Take Home" */;
@@ -198,10 +282,10 @@
 			);
 			name = "Dispo Take Home";
 			packageProductDependencies = (
-				FF9415CE25EED15B0029E28F /* SnapKit */,
-				FF9415DE25EEDC000029E28F /* KingfisherSwiftUI */,
-				B44B107E27CB1787009316BD /* SkeletonView */,
-				B46CA7A627D3750400CA985A /* IQKeyboardManagerSwift */,
+				B46CA7C027D78F5200CA985A /* SnapKit */,
+				B46CA7C227D78F8E00CA985A /* SkeletonView */,
+				B46CA7C427D78FE600CA985A /* Kingfisher */,
+				B46CA7C627D78FF500CA985A /* IQKeyboardManagerSwift */,
 			);
 			productName = "Dispo Take Home";
 			productReference = FF9415B125EECD340029E28F /* Dispo Take Home.app */;
@@ -213,9 +297,13 @@
 		FF9415A925EECD340029E28F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					B46CA7CB27D7966C00CA985A = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = FF9415B025EECD340029E28F;
+					};
 					FF9415B025EECD340029E28F = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -241,11 +329,19 @@
 			projectRoot = "";
 			targets = (
 				FF9415B025EECD340029E28F /* Dispo Take Home */,
+				B46CA7CB27D7966C00CA985A /* Dispo Take HomeTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B46CA7CA27D7966C00CA985A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FF9415AF25EECD340029E28F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -259,15 +355,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B46CA7C827D7966C00CA985A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B46CA7CF27D7966C00CA985A /* Dispo_Take_HomeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FF9415AD25EECD340029E28F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF9415F625EEF5760029E28F /* GifInfo.swift in Sources */,
-				FF9415E625EEDF380029E28F /* GifApiClient.swift in Sources */,
+				B46CA7B227D67C0100CA985A /* UIViewController+Extension.swift in Sources */,
+				B46CA7B927D6BE3600CA985A /* RefreshData.swift in Sources */,
+				B46CA7B727D68A9100CA985A /* GiphyView.swift in Sources */,
 				FF9415D525EED60B0029E28F /* Constants.swift in Sources */,
-				FF9415E225EEDC3A0029E28F /* SearchResult.swift in Sources */,
-				B46CA7A927D3778400CA985A /* IQKeyboardSetUp.swift in Sources */,
 				FF9415CB25EED1360029E28F /* MainViewController.swift in Sources */,
 				B4F4A99E27C68E5C00C8F89E /* GifTableViewCell+Extension.swift in Sources */,
 				B4F4A99C27C68CF000C8F89E /* MainViewCell.swift in Sources */,
@@ -279,11 +382,18 @@
 				FF9415D225EED25A0029E28F /* DetailViewController.swift in Sources */,
 				B48537C227D1167900054E6F /* DetailsView+Extension.swift in Sources */,
 				B47EE23D27D19C5700249A29 /* AppDelegate.swift in Sources */,
-				9A829F02277D7CF7002C03F2 /* APIListResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B46CA7D127D7966C00CA985A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF9415B025EECD340029E28F /* Dispo Take Home */;
+			targetProxy = B46CA7D027D7966C00CA985A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FF9415BF25EECD350029E28F /* LaunchScreen.storyboard */ = {
@@ -297,6 +407,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B46CA7D227D7966C00CA985A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7V7KZH2U8Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "o.Dispo-Take-HomeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dispo Take Home.app/Dispo Take Home";
+			};
+			name = Debug;
+		};
+		B46CA7D327D7966C00CA985A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7V7KZH2U8Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "o.Dispo-Take-HomeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dispo Take Home.app/Dispo Take Home";
+			};
+			name = Release;
+		};
 		FF9415C325EECD350029E28F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -422,10 +572,15 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Dispo Take Home/Preview Content\"";
 				DEVELOPMENT_TEAM = 7V7KZH2U8Z;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				INFOPLIST_FILE = "Dispo Take Home/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "takehome.dispo.Dispo-Take-Home";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -443,10 +598,15 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Dispo Take Home/Preview Content\"";
 				DEVELOPMENT_TEAM = XTR8CJ799H;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				INFOPLIST_FILE = "Dispo Take Home/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "takehome.dispo.Dispo-Take-Home";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -458,6 +618,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B46CA7D427D7966C00CA985A /* Build configuration list for PBXNativeTarget "Dispo Take HomeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B46CA7D227D7966C00CA985A /* Debug */,
+				B46CA7D327D7966C00CA985A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FF9415AC25EECD340029E28F /* Build configuration list for PBXProject "Dispo Take Home" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -514,25 +683,25 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B44B107E27CB1787009316BD /* SkeletonView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B44B107D27CB1787009316BD /* XCRemoteSwiftPackageReference "SkeletonView" */;
-			productName = SkeletonView;
-		};
-		B46CA7A627D3750400CA985A /* IQKeyboardManagerSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B46CA7A527D3750400CA985A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
-			productName = IQKeyboardManagerSwift;
-		};
-		FF9415CE25EED15B0029E28F /* SnapKit */ = {
+		B46CA7C027D78F5200CA985A /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FF9415CD25EED15B0029E28F /* XCRemoteSwiftPackageReference "snapkit" */;
 			productName = SnapKit;
 		};
-		FF9415DE25EEDC000029E28F /* KingfisherSwiftUI */ = {
+		B46CA7C227D78F8E00CA985A /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B44B107D27CB1787009316BD /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
+		B46CA7C427D78FE600CA985A /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FF9415DD25EEDC000029E28F /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = KingfisherSwiftUI;
+			productName = Kingfisher;
+		};
+		B46CA7C627D78FF500CA985A /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B46CA7A527D3750400CA985A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

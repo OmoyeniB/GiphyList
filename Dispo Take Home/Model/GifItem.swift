@@ -1,10 +1,3 @@
-//
-//  GifItem.swift
-//  Dispo Take Home
-//
-//  Created by Decagon on 04/03/2022.
-//
-
 import Foundation
 
 struct GifItem: Codable {

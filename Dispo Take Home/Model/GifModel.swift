@@ -2,7 +2,7 @@ import Foundation
 
 // MARK: - GifModel
 struct GifModel: Codable {
-    let data: [Giphy]
+   let data: [Giphy]
 }
 
 // MARK: - Giphy

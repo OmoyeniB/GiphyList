@@ -9,8 +9,9 @@ final class GifNetworkCall {
         case invalidUrl
         case invalidData
     }
-
+    
     public func fetchGifData<T: Codable>(url: URL?, expecting: T.Type, completionHandler: @escaping (Result<T, Error>) -> Void) {
+        
         guard let url = url else {
             completionHandler(.failure(CustomError.invalidUrl))
             return
