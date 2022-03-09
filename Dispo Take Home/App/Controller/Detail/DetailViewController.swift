@@ -22,9 +22,9 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        view.backgroundColor = .systemBackground
         getGifByID()
         refreshControl()
+        showSkeletonView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -60,12 +60,7 @@ class DetailViewController: UIViewController {
         var gifImage = UIImageView()
         gifImage.clipsToBounds = true
         gifImage.contentMode = .scaleAspectFill
-        
         gifImage.isSkeletonable = true
-        gifImage.showAnimatedGradientSkeleton()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
-            gifImage.hideSkeleton()
-        })
         return gifImage
     }()
     
@@ -79,12 +74,7 @@ class DetailViewController: UIViewController {
         var gifTitle = UILabel()
         gifTitle.numberOfLines = 2
         gifTitle.textAlignment = .center
-        
         gifTitle.isSkeletonable = true
-        gifTitle.showAnimatedGradientSkeleton()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            gifTitle.hideSkeleton()
-        })
         return gifTitle
     }()
     
@@ -96,12 +86,7 @@ class DetailViewController: UIViewController {
     
     lazy var sourceLabel: UILabel = {
         var sourceLabel = UILabel()
-        
         sourceLabel.isSkeletonable = true
-        sourceLabel.showAnimatedGradientSkeleton()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
-            sourceLabel.hideSkeleton()
-        })
         return sourceLabel
     }()
     
@@ -122,19 +107,30 @@ class DetailViewController: UIViewController {
     
     lazy var ratingsLabel: UILabel = {
         var ratingsLabel = UILabel()
-        
         ratingsLabel.isSkeletonable = true
-        ratingsLabel.showAnimatedGradientSkeleton()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
-            ratingsLabel.hideSkeleton()
-        })
         return ratingsLabel
     }()
+    
+    func showSkeletonView() {
+        ratingsLabel.showAnimatedGradientSkeleton()
+        sourceLabel.showAnimatedGradientSkeleton()
+        gifTitle.showAnimatedGradientSkeleton()
+        gifImage.showAnimatedGradientSkeleton()
+    }
+    
+    func hideSkeletonView() {
+        ratingsLabel.hideSkeleton()
+        sourceLabel.hideSkeleton()
+        gifTitle.hideSkeleton()
+        gifImage.hideSkeleton()
+    }
+    
     
     func getGifByID() {
         let urlString = Constants.getGifByIDURL(id: giphID)
         print("The URL is: ", urlString)
         let url = URL(string: urlString)!
+        print(url, "This is url")
         
         GifNetworkCall.shared.fetchGifData(url: url, expecting: GifItem.self) { [weak self] result  in
             switch result {
@@ -142,21 +138,30 @@ class DetailViewController: UIViewController {
                     
                     DispatchQueue.main.async {
                         
+                        self?.hideSkeletonView()
                         guard let urlString = item.data?.images?.original?.url else { return }
                         guard let url = URL(string: urlString) else { return }
                         self?.gifImage.kf.setImage(with: url)
-                        
+                       
                         if item.data?.title == nil {
                             self?.gifTitle.text = "This is a default title"
                         }
                         else{
                             self?.gifTitle.text = item.data?.title
                         }
-                        self?.sourceLabel.text = item.data?.source_tld
+                       
+                        guard let sourceText = item.data?.source_tld, sourceText.count >= 2 else {
+                            self?.sourceLabel.text = "No source found"
+                            return
+                        }
+                        
+                        self?.sourceLabel.text = sourceText
                         self?.ratingsLabel.text = item.data?.rating
+                       
                     }
                     
                 case .failure(let error):
+                    self?.hideSkeletonView()
                     self?.ifNetworkIsOutOfCoverageDisplayErrorMessage()
                     print(error.localizedDescription)
             }

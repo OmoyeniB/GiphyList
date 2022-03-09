@@ -78,7 +78,7 @@ class MainViewController: UIViewController {
                     
                 case .failure(let error):
                     self?.ifNetworkIsOutOfCoverageDisplayErrorMessage()
-                    print(error)
+                    print(error.localizedDescription)
             }
         }
        

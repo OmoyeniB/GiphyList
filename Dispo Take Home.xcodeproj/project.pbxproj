@@ -12,8 +12,6 @@
 		B44B107B27CB0204009316BD /* MainView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44B107A27CB0204009316BD /* MainView+Extension.swift */; };
 		B46CA7A327D2B7DC00CA985A /* GifItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA7A227D2B7DC00CA985A /* GifItem.swift */; };
 		B46CA7B227D67C0100CA985A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA7B127D67C0100CA985A /* UIViewController+Extension.swift */; };
-		B46CA7B727D68A9100CA985A /* GiphyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA7B627D68A9100CA985A /* GiphyView.swift */; };
-		B46CA7B927D6BE3600CA985A /* RefreshData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA7B827D6BE3500CA985A /* RefreshData.swift */; };
 		B46CA7C127D78F5200CA985A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B46CA7C027D78F5200CA985A /* SnapKit */; };
 		B46CA7C327D78F8E00CA985A /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = B46CA7C227D78F8E00CA985A /* SkeletonView */; };
 		B46CA7C527D78FE600CA985A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B46CA7C427D78FE600CA985A /* Kingfisher */; };
@@ -48,8 +46,6 @@
 		B44B107A27CB0204009316BD /* MainView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainView+Extension.swift"; sourceTree = "<group>"; };
 		B46CA7A227D2B7DC00CA985A /* GifItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifItem.swift; sourceTree = "<group>"; };
 		B46CA7B127D67C0100CA985A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		B46CA7B627D68A9100CA985A /* GiphyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyView.swift; sourceTree = "<group>"; };
-		B46CA7B827D6BE3500CA985A /* RefreshData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshData.swift; sourceTree = "<group>"; };
 		B46CA7BB27D78C0500CA985A /* libswiftWebKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWebKit.tbd; path = usr/lib/swift/libswiftWebKit.tbd; sourceTree = SDKROOT; };
 		B46CA7CC27D7966C00CA985A /* Dispo Take HomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dispo Take HomeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46CA7CE27D7966C00CA985A /* Dispo_Take_HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispo_Take_HomeTests.swift; sourceTree = "<group>"; };
@@ -90,15 +86,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B44B107327CA927C009316BD /* NetworkServices */ = {
-			isa = PBXGroup;
-			children = (
-				B46CA7B827D6BE3500CA985A /* RefreshData.swift */,
-				B44B107427CA9299009316BD /* ApiClass.swift */,
-			);
-			path = NetworkServices;
-			sourceTree = "<group>";
-		};
 		B44B107627CA971D009316BD /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,29 +109,37 @@
 			children = (
 				B47EE23C27D19C5700249A29 /* AppDelegate.swift */,
 				FF9415B625EECD340029E28F /* SceneDelegate.swift */,
+				B44B107627CA971D009316BD /* Model */,
+				B46CA7B027D6469400CA985A /* View */,
+				B464EE8527D92B7B00D0F729 /* Controller */,
 			);
 			path = App;
 			sourceTree = "<group>";
 		};
-		B46CA7AF27D6467F00CA985A /* ViewModel */ = {
+		B464EE8527D92B7B00D0F729 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FF9415E825EEEA4C0029E28F /* Main */,
+				FF9415EA25EEEA510029E28F /* Detail */,
 			);
-			path = ViewModel;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B464EE8627D92BE600D0F729 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FF9415BC25EECD350029E28F /* Preview Content */,
+				FF9415BA25EECD350029E28F /* Assets.xcassets */,
+				FF9415BF25EECD350029E28F /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		B46CA7B027D6469400CA985A /* View */ = {
 			isa = PBXGroup;
 			children = (
 				B46CA7B127D67C0100CA985A /* UIViewController+Extension.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		B46CA7B327D6891700CA985A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B46CA7B627D68A9100CA985A /* GiphyView.swift */,
+				B44B107927CAC095009316BD /* CustomCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -163,15 +158,6 @@
 				B46CA7CE27D7966C00CA985A /* Dispo_Take_HomeTests.swift */,
 			);
 			path = "Dispo Take HomeTests";
-			sourceTree = "<group>";
-		};
-		B46CA7D527D817ED00CA985A /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				FF9415CA25EED1360029E28F /* MainViewController.swift */,
-				B44B107A27CB0204009316BD /* MainView+Extension.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		FF9415A825EECD340029E28F = {
@@ -196,17 +182,10 @@
 		FF9415B325EECD340029E28F /* Dispo Take Home */ = {
 			isa = PBXGroup;
 			children = (
-				B46CA7B027D6469400CA985A /* View */,
-				B46CA7AF27D6467F00CA985A /* ViewModel */,
 				B44B107C27CB0CD4009316BD /* App */,
-				B44B107627CA971D009316BD /* Model */,
-				FF9415E825EEEA4C0029E28F /* Main */,
-				FF9415EA25EEEA510029E28F /* Detail */,
 				FF9415EC25EEEA560029E28F /* Util */,
-				FF9415BA25EECD350029E28F /* Assets.xcassets */,
-				FF9415BF25EECD350029E28F /* LaunchScreen.storyboard */,
+				B464EE8627D92BE600D0F729 /* Resources */,
 				FF9415C225EECD350029E28F /* Info.plist */,
-				FF9415BC25EECD350029E28F /* Preview Content */,
 			);
 			path = "Dispo Take Home";
 			sourceTree = "<group>";
@@ -222,9 +201,8 @@
 		FF9415E825EEEA4C0029E28F /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				B46CA7D527D817ED00CA985A /* Controller */,
-				B46CA7B327D6891700CA985A /* View */,
-				B44B107927CAC095009316BD /* CustomCell */,
+				FF9415CA25EED1360029E28F /* MainViewController.swift */,
+				B44B107A27CB0204009316BD /* MainView+Extension.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -241,8 +219,8 @@
 		FF9415EC25EEEA560029E28F /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				B44B107427CA9299009316BD /* ApiClass.swift */,
 				FF9415D425EED60B0029E28F /* Constants.swift */,
-				B44B107327CA927C009316BD /* NetworkServices */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -368,8 +346,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B46CA7B227D67C0100CA985A /* UIViewController+Extension.swift in Sources */,
-				B46CA7B927D6BE3600CA985A /* RefreshData.swift in Sources */,
-				B46CA7B727D68A9100CA985A /* GiphyView.swift in Sources */,
 				FF9415D525EED60B0029E28F /* Constants.swift in Sources */,
 				FF9415CB25EED1360029E28F /* MainViewController.swift in Sources */,
 				B4F4A99E27C68E5C00C8F89E /* GifTableViewCell+Extension.swift in Sources */,

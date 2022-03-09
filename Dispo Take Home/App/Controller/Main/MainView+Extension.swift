@@ -31,10 +31,11 @@ extension MainViewController: UISearchControllerDelegate, UISearchResultsUpdatin
     
     func updateSearchResults(for searchController: UISearchController) {
         
-        guard let text = searchController.searchBar.text else { return }
+        guard let text = searchController.searchBar.text?.replacingOccurrences(of: " ", with: "%20") else { return }
+      
         let urlString = Constants.getGifSearched(searchText: text)
         let url = URL(string: urlString)
-        
+       
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: {(_) in
             
@@ -58,6 +59,7 @@ extension MainViewController: UISearchControllerDelegate, UISearchResultsUpdatin
                 }
             }
             else {
+                
                 self.gifUILoadedFromServer()
             }
         })
