@@ -9,7 +9,6 @@ class MainViewController: UIViewController {
     var tableView = UITableView()
     var searchController = UISearchController()
     var gifItem: GifModel?
-    var UrlOfTextSearched = ""
     
     override func loadView() {
         super.loadView()

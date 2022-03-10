@@ -20,7 +20,6 @@
 		B47EE23D27D19C5700249A29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47EE23C27D19C5700249A29 /* AppDelegate.swift */; };
 		B48537C227D1167900054E6F /* DetailsView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48537C127D1167900054E6F /* DetailsView+Extension.swift */; };
 		B4F4A99C27C68CF000C8F89E /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4A99B27C68CF000C8F89E /* MainViewCell.swift */; };
-		B4F4A99E27C68E5C00C8F89E /* GifTableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4A99D27C68E5C00C8F89E /* GifTableViewCell+Extension.swift */; };
 		FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B625EECD340029E28F /* SceneDelegate.swift */; };
 		FF9415BB25EECD350029E28F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9415BA25EECD350029E28F /* Assets.xcassets */; };
 		FF9415BE25EECD350029E28F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9415BD25EECD350029E28F /* Preview Assets.xcassets */; };
@@ -52,7 +51,6 @@
 		B47EE23C27D19C5700249A29 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Dispo Take Home/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		B48537C127D1167900054E6F /* DetailsView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsView+Extension.swift"; sourceTree = "<group>"; };
 		B4F4A99B27C68CF000C8F89E /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
-		B4F4A99D27C68E5C00C8F89E /* GifTableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GifTableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		FF9415B125EECD340029E28F /* Dispo Take Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dispo Take Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9415B625EECD340029E28F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FF9415BA25EECD350029E28F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				B4F4A99B27C68CF000C8F89E /* MainViewCell.swift */,
-				B4F4A99D27C68E5C00C8F89E /* GifTableViewCell+Extension.swift */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -348,7 +345,6 @@
 				B46CA7B227D67C0100CA985A /* UIViewController+Extension.swift in Sources */,
 				FF9415D525EED60B0029E28F /* Constants.swift in Sources */,
 				FF9415CB25EED1360029E28F /* MainViewController.swift in Sources */,
-				B4F4A99E27C68E5C00C8F89E /* GifTableViewCell+Extension.swift in Sources */,
 				B4F4A99C27C68CF000C8F89E /* MainViewCell.swift in Sources */,
 				FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */,
 				B44B107827CA9739009316BD /* GifModel.swift in Sources */,
@@ -545,7 +541,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Dispo Take Home/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 7V7KZH2U8Z;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_TESTING_SEARCH_PATHS = YES;
@@ -571,7 +567,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Dispo Take Home/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = XTR8CJ799H;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_TESTING_SEARCH_PATHS = YES;
