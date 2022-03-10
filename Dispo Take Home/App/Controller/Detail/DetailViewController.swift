@@ -151,6 +151,7 @@ class DetailViewController: UIViewController {
                             self?.sourceLabel.text = "No source found"
                             return
                         }
+                        self?.sourceLabel.text = sourceText
                     }
                     
                 case .failure(let error):
