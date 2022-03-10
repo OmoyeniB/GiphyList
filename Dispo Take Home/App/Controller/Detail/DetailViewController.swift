@@ -143,22 +143,14 @@ class DetailViewController: UIViewController {
                         guard let urlString = item.data?.images?.original?.url else { return }
                         guard let url = URL(string: urlString) else { return }
                         self?.gifImage.kf.setImage(with: url)
-                       
-                        if item.data?.title == nil {
-                            self?.gifTitle.text = "This is a default title"
-                        }
-                        else{
-                            self?.gifTitle.text = item.data?.title
-                        }
-                       
+                        
+                        self?.gifTitle.text = item.data?.title
+                        self?.ratingsLabel.text = item.data?.rating
+                        
                         guard let sourceText = item.data?.source_tld, sourceText.count >= 2 else {
                             self?.sourceLabel.text = "No source found"
                             return
                         }
-                        
-                        self?.sourceLabel.text = sourceText
-                        self?.ratingsLabel.text = item.data?.rating
-                       
                     }
                     
                 case .failure(let error):
