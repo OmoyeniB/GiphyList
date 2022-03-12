@@ -5,10 +5,10 @@ import XCTest
 class MainViewController: UIViewController {
     
     var timer: Timer?
+    var gifItem: GifModel?
     var mainViewCell = MainViewCell()
     var tableView = UITableView()
     var searchController = UISearchController()
-    var gifItem: GifModel?
     
     override func loadView() {
         super.loadView()
@@ -25,7 +25,7 @@ class MainViewController: UIViewController {
         refreshControl()
     }
     
-    func refreshControl() {
+   private func refreshControl() {
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
     }
@@ -37,7 +37,7 @@ class MainViewController: UIViewController {
         })
     }
     
-    func configureTableView() {
+   private func configureTableView() {
         tableView.rowHeight = 120
         tableView.separatorColor = .clear
         tableView.dataSource = self
@@ -61,7 +61,7 @@ class MainViewController: UIViewController {
         searchController.delegate = self
     }
     
-    func gifUILoadedFromServer() {
+   public func gifUILoadedFromServer() {
         
         let url = URL(string: Constants.getTrendingGifURL)
         GifNetworkCall.shared.fetchGifData(url: url, expecting: GifModel.self) {
@@ -70,6 +70,7 @@ class MainViewController: UIViewController {
             switch result {
                 case .success(let giphy):
                     
+                  
                     DispatchQueue.main.async {
                         self?.gifItem = giphy
                         self?.tableView.reloadData()

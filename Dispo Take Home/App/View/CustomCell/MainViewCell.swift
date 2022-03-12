@@ -12,8 +12,10 @@ class MainViewCell: UITableViewCell {
         
         contentView.addSubview(gifImage)
         contentView.addSubview(gifTitle)
+        skeletonViewDidFinishLoadingWithDelay()
         configureGifImage()
         configureGifTitle()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -24,12 +26,8 @@ class MainViewCell: UITableViewCell {
         let gifImage = UIImageView()
         gifImage.clipsToBounds = true
         gifImage.contentMode = .scaleAspectFill
-        
         gifImage.isSkeletonable = true
         gifImage.showAnimatedGradientSkeleton()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
-            gifImage.hideSkeleton()
-        })
         return gifImage
     }()
     
@@ -38,12 +36,8 @@ class MainViewCell: UITableViewCell {
         gifTitle.showAnimatedGradientSkeleton()
         gifTitle.numberOfLines = 0
         gifTitle.adjustsFontSizeToFitWidth = false
-        
         gifTitle.isSkeletonable = true
         gifTitle.showAnimatedGradientSkeleton()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
-            gifTitle.hideSkeleton()
-        })
         return gifTitle
     }()
     
@@ -63,6 +57,13 @@ class MainViewCell: UITableViewCell {
             make.leading.equalTo(gifImage.snp.trailing).offset(15)
             make.trailing.equalToSuperview().inset(20)
         }
+    }
+    
+    func skeletonViewDidFinishLoadingWithDelay() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: {
+            self.gifImage.hideSkeleton()
+            self.gifTitle.hideSkeleton()
+        })
     }
     
     public func setup(with giphy: Giphy) {

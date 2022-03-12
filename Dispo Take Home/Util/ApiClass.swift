@@ -35,20 +35,8 @@ final class GifNetworkCall {
             catch {
                 completionHandler(.failure(error))
             }
-
         }
         
         task.resume()
     }
-}
-
-
-extension UIImageView {
-    func setImage(imageUrl: String, placeholder: String) {
-        self.kf.setImage(with: URL(string: imageUrl), placeholder: UIImage(named: placeholder))
-        
-        //        let url = URL(string: "https://example.com/image.png")
-        //        imageView.kf.setImage(with: url)
-    }
-    
 }

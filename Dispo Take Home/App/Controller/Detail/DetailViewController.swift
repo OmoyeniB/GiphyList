@@ -39,6 +39,13 @@ class DetailViewController: UIViewController {
     
     @objc func didPullToRefresh() {
         print("refreshing started")
+        DispatchQueue.main.async {
+            self.scrollView.refreshControl?.beginRefreshing()
+        }
+        didStopRefreshing()
+    }
+    
+    func didStopRefreshing() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
             self.scrollView.refreshControl?.endRefreshing()
             self.getGifByID()
@@ -62,6 +69,9 @@ class DetailViewController: UIViewController {
         gifImage.clipsToBounds = true
         gifImage.contentMode = .scaleAspectFill
         gifImage.isSkeletonable = true
+        
+        gifImage.showAnimatedGradientSkeleton()
+        
         return gifImage
     }()
     
@@ -117,21 +127,21 @@ class DetailViewController: UIViewController {
         sourceLabel.showAnimatedGradientSkeleton()
         gifTitle.showAnimatedGradientSkeleton()
         gifImage.showAnimatedGradientSkeleton()
+        gifImage.showAnimatedGradientSkeleton()
     }
     
     func hideSkeletonView() {
-        ratingsLabel.hideSkeleton()
-        sourceLabel.hideSkeleton()
-        gifTitle.hideSkeleton()
-        gifImage.hideSkeleton()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.gifImage.hideSkeleton()
+            self.ratingsLabel.hideSkeleton()
+            self.sourceLabel.hideSkeleton()
+            self.gifTitle.hideSkeleton()
+        })
     }
     
-    
-    func getGifByID() {
+    private func getGifByID() {
         let urlString = Constants.getGifByIDURL(id: giphID)
-        print("The URL is: ", urlString)
-        let url = URL(string: urlString)!
-        print(url, "This is url")
+        guard let url = URL(string: urlString) else { return }
         
         GifNetworkCall.shared.fetchGifData(url: url, expecting: GifItem.self) { [weak self] result  in
             switch result {
