@@ -9,10 +9,12 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: MainViewCell.identifier, for: indexPath) as? MainViewCell
-        guard let arrayOfGiphy = gifItem?.data[indexPath.row] else { return UITableViewCell() }
-        cell?.setup(with: arrayOfGiphy)
-        return cell ?? UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainViewModel.identifier, for: indexPath) as? MainViewCell
+        else { return UITableViewCell() }
+        if let arrayOfGiphy = gifItem?.data[indexPath.row] {
+            cell.setup(with: arrayOfGiphy)
+        }
+        return cell
     }
 }
 
@@ -21,7 +23,7 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let vc = DetailViewController()
-        vc.giphID = gifItem?.data[indexPath.row].id ?? "1"
+       DetailsViewModel.giphID = gifItem?.data[indexPath.row].id ?? ""
         navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -32,34 +34,25 @@ extension MainViewController: UISearchControllerDelegate, UISearchResultsUpdatin
     func updateSearchResults(for searchController: UISearchController) {
         
         guard let text = searchController.searchBar.text?.replacingOccurrences(of: " ", with: "%20") else { return }
-      
-        let urlString = Constants.getGifSearched(searchText: text)
-        let url = URL(string: urlString)
-       
+
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: {(_) in
             
             if text.count > 0 {
-                
-                GifNetworkCall.shared.fetchGifData(url: url, expecting: GifModel.self) { [weak self] result in
+                MainViewModel.fetchDataForSearchBar(text: text) {
+                    result in
                     switch result {
-                            
                         case .success(let giphy):
-                            print(giphy.data, "This is data")
-                            
                             DispatchQueue.main.async {
-                                self?.gifItem = giphy
-                                self?.tableView.reloadData()
+                                self.gifItem = giphy
+                                self.tableView.reloadData()
                             }
                             
-                        case .failure(let error):
-                            self?.ifNetworkIsOutOfCoverageDisplayErrorMessage()
-                            print(error.localizedDescription)
+                        case .failure(_):
+                            self.displayError(error: Constants.networkOutOfCoverage)
                     }
                 }
-            }
-            else {
-                
+            } else {
                 self.gifUILoadedFromServer()
             }
         })

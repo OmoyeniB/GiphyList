@@ -4,6 +4,12 @@ enum Constants {}
 
 extension Constants {
     
+    static let networkOutOfCoverage = "Oops!.. something went wrong. Please check your connection and try again"
+    static let noSourceFound = "No source found"
+    static let gifTitleRatingsLabel = "Rating:"
+    static let gifSourceLabel = "Source:"
+    static let titleLableText = "Title:"
+    static let searchBarPlaceHolder = "Type to search ...."
     static let baseURL = "https://api.giphy.com/v1/gifs/"
     static let giphyApiKey = "lVKYZAM1Ni7MvPA613oBP1qwc7ihzgFU"
     static let getTrendingGifURL = "\(baseURL)trending?api_key=\(giphyApiKey)"

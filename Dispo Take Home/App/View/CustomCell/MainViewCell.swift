@@ -4,7 +4,6 @@ import Kingfisher
 
 class MainViewCell: UITableViewCell {
     
-    static let identifier = "cell"
     var giphy = [Giphy]()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -25,7 +24,7 @@ class MainViewCell: UITableViewCell {
     private let gifImage: UIImageView = {
         let gifImage = UIImageView()
         gifImage.clipsToBounds = true
-        gifImage.contentMode = .scaleToFill
+        gifImage.contentMode = .scaleAspectFill
         gifImage.isSkeletonable = true
         gifImage.showAnimatedGradientSkeleton()
         return gifImage

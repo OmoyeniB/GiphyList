@@ -3,7 +3,6 @@ import Kingfisher
 
 class DetailViewController: UIViewController {
     
-    var giphID = ""
     var gifItem: GifItem?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -38,17 +37,18 @@ class DetailViewController: UIViewController {
     }
     
     @objc func didPullToRefresh() {
-        print("refreshing started")
+        
         DispatchQueue.main.async {
             self.scrollView.refreshControl?.beginRefreshing()
+            self.getGifByID()
+            self.didStopRefreshing()
         }
-        didStopRefreshing()
     }
     
     func didStopRefreshing() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
             self.scrollView.refreshControl?.endRefreshing()
-            self.getGifByID()
         })
     }
     
@@ -67,17 +67,15 @@ class DetailViewController: UIViewController {
     lazy var gifImage: UIImageView = {
         var gifImage = UIImageView()
         gifImage.clipsToBounds = true
-        gifImage.contentMode = .scaleAspectFill
+        gifImage.contentMode = .scaleToFill
         gifImage.isSkeletonable = true
-        
         gifImage.showAnimatedGradientSkeleton()
-        
         return gifImage
     }()
     
     lazy var gifTitleLabel: UILabel = {
         var gifTitleLabel = UILabel()
-        gifTitleLabel.text = "Title:"
+        gifTitleLabel.text = Constants.titleLableText
         return gifTitleLabel
     }()
     
@@ -91,7 +89,7 @@ class DetailViewController: UIViewController {
     
     lazy var gifSourceLabel:  UILabel = {
         var gifTitleLabel = UILabel()
-        gifTitleLabel.text = "Source:"
+        gifTitleLabel.text = Constants.gifSourceLabel
         return gifTitleLabel
     }()
     
@@ -112,7 +110,7 @@ class DetailViewController: UIViewController {
     
     lazy var gifRatingsLabel:  UILabel = {
         var gifTitleLabel = UILabel()
-        gifTitleLabel.text = "Rating:"
+        gifTitleLabel.text = Constants.gifTitleRatingsLabel
         return gifTitleLabel
     }()
     
@@ -140,34 +138,31 @@ class DetailViewController: UIViewController {
     }
     
     private func getGifByID() {
-        let urlString = Constants.getGifByIDURL(id: giphID)
-        guard let url = URL(string: urlString) else { return }
-        
-        GifNetworkCall.shared.fetchGifData(url: url, expecting: GifItem.self) { [weak self] result  in
+        DetailsViewModel.fetchDetailsDataFromServer { result in
+            
             switch result {
                 case .success(let item):
                     
                     DispatchQueue.main.async {
                         
-                        self?.hideSkeletonView()
+                        self.hideSkeletonView()
                         guard let urlString = item.data?.images?.original?.url else { return }
                         guard let url = URL(string: urlString) else { return }
-                        self?.gifImage.kf.setImage(with: url)
+                        self.gifImage.kf.setImage(with: url)
                         
-                        self?.gifTitle.text = item.data?.title
-                        self?.ratingsLabel.text = item.data?.rating
+                        self.gifTitle.text = item.data?.title
+                        self.ratingsLabel.text = item.data?.rating
                         
                         guard let sourceText = item.data?.source_tld, sourceText.count >= 2 else {
-                            self?.sourceLabel.text = "No source found"
+                            self.sourceLabel.text = Constants.noSourceFound
                             return
                         }
-                        self?.sourceLabel.text = sourceText
+                        self.sourceLabel.text = sourceText
                     }
                     
-                case .failure(let error):
-                    self?.hideSkeletonView()
-                    self?.ifNetworkIsOutOfCoverageDisplayErrorMessage()
-                    print(error.localizedDescription)
+                case .failure(_):
+                    self.hideSkeletonView()
+                    self.displayError(error: Constants.networkOutOfCoverage)
             }
         }
     }

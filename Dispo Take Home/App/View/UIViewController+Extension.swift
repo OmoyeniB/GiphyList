@@ -18,14 +18,13 @@ extension UIViewController {
         self.present(alertController, animated: true)
     }
     
-    public func ifNetworkIsOutOfCoverageDisplayErrorMessage() {
+    public func displayError(error: String) {
         
         DispatchQueue.main.async {
             self.popUpAlert(title: "Alert",
-                            message: "Oops!.. something went wrong. Please check your connection and try again",
+                            message: error,
                             alertStyle: .alert,
                             actionTitles: ["OK"], actionStyles: [.default], actions: [ { _ in
-                print("User out of network coverage")
             }])
         }
     }

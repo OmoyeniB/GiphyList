@@ -36,7 +36,6 @@ final class GifNetworkCall {
                 completionHandler(.failure(error))
             }
         }
-        
         task.resume()
     }
 }
