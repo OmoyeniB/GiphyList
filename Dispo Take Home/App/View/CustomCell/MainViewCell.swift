@@ -25,7 +25,7 @@ class MainViewCell: UITableViewCell {
     private let gifImage: UIImageView = {
         let gifImage = UIImageView()
         gifImage.clipsToBounds = true
-        gifImage.contentMode = .scaleAspectFill
+        gifImage.contentMode = .scaleToFill
         gifImage.isSkeletonable = true
         gifImage.showAnimatedGradientSkeleton()
         return gifImage
