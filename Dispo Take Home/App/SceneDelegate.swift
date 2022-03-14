@@ -1,14 +1,39 @@
+
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-  var window: UIWindow?
 
-  func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-    guard let windowScene = scene as? UIWindowScene else { return }
+    var window: UIWindow?
+    var mainAppCoordinator: MainCoordinator?
 
-    let window = UIWindow(windowScene: windowScene)
-    window.rootViewController = UINavigationController(rootViewController: MainViewController())
-    self.window = window
-    window.makeKeyAndVisible()
-  }
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession,
+               options connectionOptions: UIScene.ConnectionOptions) {
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        setupAppCoordinator(for: windowScene)
+    }
+    
+    func setupAppCoordinator(for windowScene: UIWindowScene) {
+        let appWindow = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        appWindow.windowScene = windowScene
+        self.window = appWindow
+        AppDelegate.standard?.window = appWindow
+        mainAppCoordinator = MainCoordinator(window: appWindow)
+        mainAppCoordinator?.start()
+        
+    }
+    
+    func sceneDidDisconnect(_ scene: UIScene) {
+    }
+
+    func sceneDidBecomeActive(_ scene: UIScene) {
+    }
+
+    func sceneWillResignActive(_ scene: UIScene) {
+    }
+
+    func sceneWillEnterForeground(_ scene: UIScene) {
+    }
+
+    func sceneDidEnterBackground(_ scene: UIScene) {
+    }
 }
