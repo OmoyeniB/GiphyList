@@ -4,7 +4,8 @@ import Kingfisher
 class DetailViewController: UIViewController {
     
     var gifItem: GifItem?
-    
+//    var didCompleteBookmark: CoordinatorTransition?
+    var didLoadDetailsView: CoordinatorTransition?
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
     }

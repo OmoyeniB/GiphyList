@@ -14,7 +14,7 @@ extension DetailViewController {
     }
     
     func configureView() {
-        title = "Gif Info Details"
+//        title = Constants.detailsTitle
         addToView()
         configureScrollView()
         configureContainer()
