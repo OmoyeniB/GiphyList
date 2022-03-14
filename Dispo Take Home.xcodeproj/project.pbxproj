@@ -21,6 +21,12 @@
 		B48537C227D1167900054E6F /* DetailsView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48537C127D1167900054E6F /* DetailsView+Extension.swift */; };
 		B493440D27DE88510021EC25 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493440C27DE88510021EC25 /* MainViewModel.swift */; };
 		B493440F27DE94020021EC25 /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493440E27DE94020021EC25 /* DetailsModel.swift */; };
+		B493441327DEB9B20021EC25 /* MainAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493441227DEB9B20021EC25 /* MainAppCoordinator.swift */; };
+		B493441527DEBA230021EC25 /* MainViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493441427DEBA230021EC25 /* MainViewCoordinator.swift */; };
+		B493441827DEC9390021EC25 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493441727DEC9390021EC25 /* MainCoordinator.swift */; };
+		B493442127DF827D0021EC25 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493442027DF827D0021EC25 /* Coordinator.swift */; };
+		B493442327DF83840021EC25 /* DetailsViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493442227DF83840021EC25 /* DetailsViewCoordinator.swift */; };
+		B493442527DF9C700021EC25 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493442427DF9C700021EC25 /* BaseNavigationController.swift */; };
 		B4F4A99C27C68CF000C8F89E /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4A99B27C68CF000C8F89E /* MainViewCell.swift */; };
 		FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B625EECD340029E28F /* SceneDelegate.swift */; };
 		FF9415BB25EECD350029E28F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9415BA25EECD350029E28F /* Assets.xcassets */; };
@@ -50,10 +56,16 @@
 		B46CA7BB27D78C0500CA985A /* libswiftWebKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWebKit.tbd; path = usr/lib/swift/libswiftWebKit.tbd; sourceTree = SDKROOT; };
 		B46CA7CC27D7966C00CA985A /* Dispo Take HomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dispo Take HomeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46CA7CE27D7966C00CA985A /* Dispo_Take_HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispo_Take_HomeTests.swift; sourceTree = "<group>"; };
-		B47EE23C27D19C5700249A29 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Dispo Take Home/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
+		B47EE23C27D19C5700249A29 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Dispo Take Home/App/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		B48537C127D1167900054E6F /* DetailsView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsView+Extension.swift"; sourceTree = "<group>"; };
 		B493440C27DE88510021EC25 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		B493440E27DE94020021EC25 /* DetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
+		B493441227DEB9B20021EC25 /* MainAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppCoordinator.swift; sourceTree = "<group>"; };
+		B493441427DEBA230021EC25 /* MainViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCoordinator.swift; sourceTree = "<group>"; };
+		B493441727DEC9390021EC25 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		B493442027DF827D0021EC25 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B493442227DF83840021EC25 /* DetailsViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewCoordinator.swift; sourceTree = "<group>"; };
+		B493442427DF9C700021EC25 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		B4F4A99B27C68CF000C8F89E /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		FF9415B125EECD340029E28F /* Dispo Take Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dispo Take Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9415B625EECD340029E28F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,9 +122,6 @@
 			children = (
 				B47EE23C27D19C5700249A29 /* AppDelegate.swift */,
 				FF9415B625EECD340029E28F /* SceneDelegate.swift */,
-				B44B107627CA971D009316BD /* Model */,
-				B46CA7B027D6469400CA985A /* View */,
-				B464EE8527D92B7B00D0F729 /* Controller */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -120,7 +129,6 @@
 		B464EE8527D92B7B00D0F729 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FF9415E825EEEA4C0029E28F /* Main */,
 				FF9415EA25EEEA510029E28F /* Detail */,
 			);
 			path = Controller;
@@ -139,6 +147,7 @@
 		B46CA7B027D6469400CA985A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FF9415E825EEEA4C0029E28F /* Main */,
 				B46CA7B127D67C0100CA985A /* UIViewController+Extension.swift */,
 				B44B107927CAC095009316BD /* CustomCell */,
 			);
@@ -159,6 +168,35 @@
 				B46CA7CE27D7966C00CA985A /* Dispo_Take_HomeTests.swift */,
 			);
 			path = "Dispo Take HomeTests";
+			sourceTree = "<group>";
+		};
+		B493441027DEAE8E0021EC25 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B493440E27DE94020021EC25 /* DetailsModel.swift */,
+				B493440C27DE88510021EC25 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B493441127DEB99F0021EC25 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B493441227DEB9B20021EC25 /* MainAppCoordinator.swift */,
+				B493441727DEC9390021EC25 /* MainCoordinator.swift */,
+				B493441627DEC91E0021EC25 /* ChildCoordinator */,
+				B493442027DF827D0021EC25 /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		B493441627DEC91E0021EC25 /* ChildCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B493441427DEBA230021EC25 /* MainViewCoordinator.swift */,
+				B493442227DF83840021EC25 /* DetailsViewCoordinator.swift */,
+			);
+			path = ChildCoordinator;
 			sourceTree = "<group>";
 		};
 		FF9415A825EECD340029E28F = {
@@ -184,6 +222,11 @@
 			isa = PBXGroup;
 			children = (
 				B44B107C27CB0CD4009316BD /* App */,
+				B493441127DEB99F0021EC25 /* Coordinator */,
+				B493441027DEAE8E0021EC25 /* ViewModel */,
+				B44B107627CA971D009316BD /* Model */,
+				B46CA7B027D6469400CA985A /* View */,
+				B464EE8527D92B7B00D0F729 /* Controller */,
 				FF9415EC25EEEA560029E28F /* Util */,
 				B464EE8627D92BE600D0F729 /* Resources */,
 				FF9415C225EECD350029E28F /* Info.plist */,
@@ -203,7 +246,6 @@
 			isa = PBXGroup;
 			children = (
 				FF9415CA25EED1360029E28F /* MainViewController.swift */,
-				B493440C27DE88510021EC25 /* MainViewModel.swift */,
 				B44B107A27CB0204009316BD /* MainView+Extension.swift */,
 			);
 			path = Main;
@@ -214,7 +256,6 @@
 			children = (
 				FF9415D125EED2590029E28F /* DetailViewController.swift */,
 				B48537C127D1167900054E6F /* DetailsView+Extension.swift */,
-				B493440E27DE94020021EC25 /* DetailsModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -224,6 +265,7 @@
 			children = (
 				B44B107427CA9299009316BD /* ApiClass.swift */,
 				FF9415D425EED60B0029E28F /* Constants.swift */,
+				B493442427DF9C700021EC25 /* BaseNavigationController.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -350,9 +392,14 @@
 			files = (
 				B46CA7B227D67C0100CA985A /* UIViewController+Extension.swift in Sources */,
 				FF9415D525EED60B0029E28F /* Constants.swift in Sources */,
+				B493441327DEB9B20021EC25 /* MainAppCoordinator.swift in Sources */,
+				B493441827DEC9390021EC25 /* MainCoordinator.swift in Sources */,
 				FF9415CB25EED1360029E28F /* MainViewController.swift in Sources */,
+				B493441527DEBA230021EC25 /* MainViewCoordinator.swift in Sources */,
 				B4F4A99C27C68CF000C8F89E /* MainViewCell.swift in Sources */,
 				FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */,
+				B493442527DF9C700021EC25 /* BaseNavigationController.swift in Sources */,
+				B493442127DF827D0021EC25 /* Coordinator.swift in Sources */,
 				B44B107827CA9739009316BD /* GifModel.swift in Sources */,
 				B493440D27DE88510021EC25 /* MainViewModel.swift in Sources */,
 				B46CA7A327D2B7DC00CA985A /* GifItem.swift in Sources */,
@@ -361,6 +408,7 @@
 				FF9415D225EED25A0029E28F /* DetailViewController.swift in Sources */,
 				B48537C227D1167900054E6F /* DetailsView+Extension.swift in Sources */,
 				B493440F27DE94020021EC25 /* DetailsModel.swift in Sources */,
+				B493442327DF83840021EC25 /* DetailsViewCoordinator.swift in Sources */,
 				B47EE23D27D19C5700249A29 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
