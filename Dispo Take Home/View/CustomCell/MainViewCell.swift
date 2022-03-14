@@ -14,7 +14,6 @@ class MainViewCell: UITableViewCell {
         skeletonViewDidFinishLoadingWithDelay()
         configureGifImage()
         configureGifTitle()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -66,7 +65,7 @@ class MainViewCell: UITableViewCell {
         })
     }
     
-    public func setup(with giphy: Giphy) {
+    func setup(with giphy: Giphy) {
         gifTitle.text = giphy.title
         let urlString = giphy.images?.original.url ?? ""
         guard let url = URL(string: urlString) else {

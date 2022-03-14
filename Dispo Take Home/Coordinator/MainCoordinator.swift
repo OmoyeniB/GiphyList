@@ -1,7 +1,7 @@
 import UIKit
 
 final class MainCoordinator: Coordinator {
-   // APPCoordinator
+    
     let navigationController: UINavigationController
     private let window: UIWindow
     
@@ -15,18 +15,28 @@ final class MainCoordinator: Coordinator {
     }
     
     func navigateToMainView() {
-        let mainViewController = MainViewCoordinator(navigationController: navigationController)
-        pushCoordinator(mainViewController)
-        window.rootViewController = mainViewController.rootViewController
+        
+        let mainViewCoordinator = MainViewCoordinator(navigationController: navigationController)
+        pushCoordinator(mainViewCoordinator)
+        window.rootViewController = mainViewCoordinator.rootViewController
         window.makeKeyAndVisible()
         
-        mainViewController.didFinish = { [weak self] coordinator in
+        mainViewCoordinator.didFinish = { [weak self] coordinator in
             self?.popCoordinator(coordinator)
+        }
+        
+        mainViewCoordinator.navigateToDetailView = {index in
+            print(index, "index 2")
+            self.navigateToDetailsView(cellId: index)
         }
     }
     
-    func navigateToDetailsView() {
-        let detailsViewCoordinator = DetailsViewCoordinator()
+    func navigateToDetailsView(cellId: String) {
+        
+        let detailsViewCoordinator = DetailsViewCoordinator(navigationController: navigationController)
+        let model = DIContainer.makeDetailsViewModel(gifId: cellId)
+        detailsViewCoordinator.viewModel = model
+        
         pushCoordinator(detailsViewCoordinator)
         window.rootViewController = detailsViewCoordinator.rootViewController
         window.makeKeyAndVisible()

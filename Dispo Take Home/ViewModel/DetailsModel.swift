@@ -2,9 +2,20 @@ import Foundation
 
 final class DetailsViewModel {
     
-   static var giphID = ""
-    static func fetchDetailsDataFromServer(completion: @escaping ((Result<GifItem, Error>) -> Void)) {
-        
+    private var allItems: [GifItem]?
+    
+    var items: [GifItem] {
+        get {
+            return allItems ?? []
+        }
+        set {
+            allItems = newValue
+        }
+    }
+    
+    var giphID = ""
+    func fetchDetailsDataFromServer(completion: @escaping ((Result<GifItem, Error>) -> Void)) {
+        print(giphID, "index 9")
         let urlString = Constants.getGifByIDURL(id: giphID)
         guard let url = URL(string: urlString) else { return }
         

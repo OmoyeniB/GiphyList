@@ -4,14 +4,13 @@ import XCTest
 
 class MainViewController: UIViewController {
     
-    var viewModel: MainViewModel?
-    var didLoadMainView: CoordinatorTransition?
-    var timer: Timer?
-    var gifItem: GifModel?
-    var mainViewCell = MainViewCell()
     var tableView = UITableView()
     var searchController = UISearchController()
-
+    var viewModel: MainViewModel?
+    var didSelectRow: ((String) -> Void)?
+    var timer: Timer?
+    var gifItem: GifModel?
+    
     override func loadView() {
         super.loadView()
         view = UIView()

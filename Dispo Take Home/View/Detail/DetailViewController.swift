@@ -4,7 +4,8 @@ import Kingfisher
 class DetailViewController: UIViewController {
     
     var gifItem: GifItem?
-//    var didCompleteBookmark: CoordinatorTransition?
+    var viewModel: DetailsViewModel?
+    var didSelectItem: ((GifItem) -> Void)?
     var didLoadDetailsView: CoordinatorTransition?
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
@@ -139,7 +140,8 @@ class DetailViewController: UIViewController {
     }
     
     private func getGifByID() {
-        DetailsViewModel.fetchDetailsDataFromServer { result in
+        print(viewModel, "viewModel")
+        viewModel?.fetchDetailsDataFromServer { result in
             
             switch result {
                 case .success(let item):

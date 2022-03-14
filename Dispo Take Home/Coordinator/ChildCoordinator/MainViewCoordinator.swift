@@ -4,6 +4,7 @@ final class MainViewCoordinator: Coordinator {
     
    private let navigationController: UINavigationController
    
+    var navigateToDetailView: ((String) -> Void)?
     var rootViewController: UIViewController {
         navigationController
     }
@@ -18,9 +19,11 @@ final class MainViewCoordinator: Coordinator {
         let mainViewController = MainViewController()
         let viewModel = MainViewModel()
         mainViewController.viewModel = viewModel
-        mainViewController.didLoadMainView = { [weak self] in self?.finish()
-            
+        mainViewController.didSelectRow = {index in
+            self.navigateToDetailView?(index)
         }
+        
+       
         navigationController.pushViewController(mainViewController, animated: true)
     }
     

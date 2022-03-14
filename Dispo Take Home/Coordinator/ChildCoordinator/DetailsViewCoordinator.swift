@@ -2,28 +2,24 @@ import UIKit
 
 final class DetailsViewCoordinator: Coordinator {
     
-    private let navigationController: BaseNavigationController
-
+    private let navigationController: UINavigationController
+    var viewModel: DetailsViewModel?
     var rootViewController: UIViewController {
         navigationController
     }
-
-   override init() {
-      navigationController = BaseNavigationController()
-        super.init()
-        navigationController.delegate = self
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
+    
     override func start() {
         loadDetailsView()
     }
     
-    override func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        navigationController.setBackButton()
-        
-    }
-    
     func loadDetailsView() {
         let detailsViewController = DetailViewController()
+        detailsViewController.viewModel = viewModel
         navigationController.pushViewController(detailsViewController, animated: true)
+        
     }
 }

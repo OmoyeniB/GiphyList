@@ -17,15 +17,15 @@ extension MainViewController: UITableViewDataSource {
         return cell
     }
 }
-//mainAppCoordinator?.navigateToDetailsView()
 
 extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let vc = DetailViewController()
-       DetailsViewModel.giphID = gifItem?.data[indexPath.row].id ?? ""
-        navigationController?.pushViewController(vc, animated: true)
+        if let id = gifItem?.data[indexPath.row].id  {
+            print(id, "item id")
+            didSelectRow?(id)
+        }
     }
 }
 
@@ -55,6 +55,7 @@ extension MainViewController: UISearchControllerDelegate, UISearchResultsUpdatin
                 self.gifUILoadedFromServer()
             }
         })
+        
     }
     
 }
