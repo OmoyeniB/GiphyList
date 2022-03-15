@@ -4,8 +4,8 @@ import XCTest
 
 class MainViewController: UIViewController {
     
-    var tableView = UITableView()
-    var searchController = UISearchController()
+    let tableView = UITableView()
+    let searchController = UISearchController()
     var viewModel: MainViewModel?
     var didSelectRow: ((String) -> Void)?
     var timer: Timer?
@@ -26,16 +26,6 @@ class MainViewController: UIViewController {
         refreshControl()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        view.updateSkeleton()
-    }
-    
-    override func updateViewConstraints() {
-        super.updateViewConstraints()
-        view.updateSkeleton()
-    }
-    
     private func refreshControl() {
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
@@ -48,13 +38,11 @@ class MainViewController: UIViewController {
             self.gifUILoadedFromServer()
             self.refreshEnd()
         }
-        
     }
     
     func refreshEnd() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
             self.tableView.refreshControl?.endRefreshing()
-            
         })
     }
     
@@ -63,7 +51,7 @@ class MainViewController: UIViewController {
         tableView.separatorColor = .clear
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(MainViewCell.self, forCellReuseIdentifier: MainViewModel.identifier)
+        tableView.register(MainViewCell.self, forCellReuseIdentifier: MainViewCell.identifier)
         
         tableView.snp.makeConstraints({ make in
             make.edges.equalToSuperview()
@@ -82,9 +70,9 @@ class MainViewController: UIViewController {
         searchController.delegate = self
     }
     
-     func gifUILoadedFromServer() {
+    func gifUILoadedFromServer() {
         
-         MainViewModel.fetchDataFromServer {result in
+        MainViewModel.fetchDataFromServer {result in
             switch result {
                 case .success(let giphy):
                     DispatchQueue.main.async {

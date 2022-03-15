@@ -7,6 +7,7 @@ class DetailViewController: UIViewController {
     var viewModel: DetailsViewModel?
     var didSelectItem: ((GifItem) -> Void)?
     var didLoadDetailsView: CoordinatorTransition?
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
     }
@@ -26,7 +27,6 @@ class DetailViewController: UIViewController {
         configureView()
         getGifByID()
         refreshControl()
-        showSkeletonView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,12 +66,10 @@ class DetailViewController: UIViewController {
         return view
     }()
     
-    lazy var gifImage: UIImageView = {
-        var gifImage = UIImageView()
+    lazy var gifImage: AnimatedImageView = {
+        var gifImage = AnimatedImageView()
         gifImage.clipsToBounds = true
         gifImage.contentMode = .scaleToFill
-        gifImage.isSkeletonable = true
-        gifImage.showAnimatedGradientSkeleton()
         return gifImage
     }()
     
@@ -85,7 +83,6 @@ class DetailViewController: UIViewController {
         var gifTitle = UILabel()
         gifTitle.numberOfLines = 2
         gifTitle.textAlignment = .center
-        gifTitle.isSkeletonable = true
         return gifTitle
     }()
     
@@ -97,7 +94,6 @@ class DetailViewController: UIViewController {
     
     lazy var sourceLabel: UILabel = {
         var sourceLabel = UILabel()
-        sourceLabel.isSkeletonable = true
         return sourceLabel
     }()
     
@@ -122,25 +118,7 @@ class DetailViewController: UIViewController {
         return ratingsLabel
     }()
     
-    func showSkeletonView() {
-        ratingsLabel.showAnimatedGradientSkeleton()
-        sourceLabel.showAnimatedGradientSkeleton()
-        gifTitle.showAnimatedGradientSkeleton()
-        gifImage.showAnimatedGradientSkeleton()
-        gifImage.showAnimatedGradientSkeleton()
-    }
-    
-    func hideSkeletonView() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            self.gifImage.hideSkeleton()
-            self.ratingsLabel.hideSkeleton()
-            self.sourceLabel.hideSkeleton()
-            self.gifTitle.hideSkeleton()
-        })
-    }
-    
     private func getGifByID() {
-        print(viewModel, "viewModel")
         viewModel?.fetchDetailsDataFromServer { result in
             
             switch result {
@@ -148,11 +126,17 @@ class DetailViewController: UIViewController {
                     
                     DispatchQueue.main.async {
                         
-                        self.hideSkeletonView()
                         guard let urlString = item.data?.images?.original?.url else { return }
                         guard let url = URL(string: urlString) else { return }
-                        self.gifImage.kf.setImage(with: url)
                         
+                        self.gifImage.kf.indicatorType = .activity
+                        self.gifImage.kf.setImage(
+                            with: url,
+                            options: [
+                                .cacheOriginalImage,
+                                .transition(.fade(0.2))
+                            ]
+                        )
                         self.gifTitle.text = item.data?.title
                         self.ratingsLabel.text = item.data?.rating
                         
@@ -164,7 +148,6 @@ class DetailViewController: UIViewController {
                     }
                     
                 case .failure(_):
-                    self.hideSkeletonView()
                     self.displayError(error: Constants.networkOutOfCoverage)
             }
         }

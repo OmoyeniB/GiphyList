@@ -14,7 +14,7 @@ extension DetailViewController {
     }
     
     func configureView() {
-//        title = Constants.detailsTitle
+        title = Constants.detailsTitle
         addToView()
         configureScrollView()
         configureContainer()
@@ -55,14 +55,14 @@ extension DetailViewController {
     
     func addConstraintsToGifTitleLabel() {
         gifTitleLabel.snp.makeConstraints({ make in
-            make.top.equalTo(gifImage.snp.bottomMargin).offset(20)
+            make.top.equalTo(gifImage.snp.bottom).offset(20)
             make.leading.equalTo(containerView).offset(25)
         })
     }
     
     func addConstraintsToGifTitle() {
         gifTitle.snp.makeConstraints { make in
-            make.top.equalTo(gifImage.snp.bottomMargin).offset(20)
+            make.top.equalTo(gifImage.snp.bottom).offset(20)
             make.leading.equalTo(gifTitleLabel.snp.trailingMargin).offset(10)
             make.trailing.equalTo(containerView).inset(20)
         }
@@ -70,14 +70,14 @@ extension DetailViewController {
     
     func configureSourceStackView() {
         sourceStackView.snp.makeConstraints({ make in
-            make.top.equalTo(gifTitle.snp.bottomMargin).offset(20)
+            make.top.equalTo(gifTitle.snp.bottom).offset(20)
             make.centerX.equalTo(containerView.snp.centerX)
         })
     }
     
     func addConstraintsToGifSourceLabel() {
         gifSourceLabel.snp.makeConstraints({ make in
-            make.leadingMargin.equalTo(sourceStackView)
+            make.leading.equalTo(sourceStackView)
             make.top.equalTo(sourceStackView)
         })
     }
@@ -91,14 +91,14 @@ extension DetailViewController {
     
     func addConstraintsToGifRatingsLabel() {
         gifRatingsLabel.snp.makeConstraints({ make in
-            make.top.equalTo(sourceStackView.snp.bottomMargin).offset(20)
+            make.top.equalTo(sourceStackView.snp.bottom).offset(20)
             make.centerX.equalTo(containerView.snp.centerX)
         })
     }
     
     func addConstraintsToRatingsLabel() {
         ratingsLabel.snp.makeConstraints { make in
-            make.top.equalTo(sourceStackView.snp.bottomMargin).offset(20)
+            make.top.equalTo(sourceStackView.snp.bottom).offset(20)
             make.leading.equalTo(gifRatingsLabel.snp.trailing).offset(5)
         }
     }

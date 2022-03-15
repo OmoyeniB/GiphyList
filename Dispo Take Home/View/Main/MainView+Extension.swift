@@ -9,8 +9,10 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainViewModel.identifier, for: indexPath) as? MainViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainViewCell.identifier,
+                                                       for: indexPath) as? MainViewCell
         else { return UITableViewCell() }
+        
         if let arrayOfGiphy = gifItem?.data[indexPath.row] {
             cell.setup(with: arrayOfGiphy)
         }
@@ -23,7 +25,6 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let id = gifItem?.data[indexPath.row].id  {
-            print(id, "item id")
             didSelectRow?(id)
         }
     }
@@ -55,8 +56,6 @@ extension MainViewController: UISearchControllerDelegate, UISearchResultsUpdatin
                 self.gifUILoadedFromServer()
             }
         })
-        
     }
-    
 }
 

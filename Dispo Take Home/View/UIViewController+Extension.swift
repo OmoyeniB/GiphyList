@@ -15,6 +15,7 @@ extension UIViewController {
                                        handler: actions[index])
             alertController.addAction(action)
         }
+        
         self.present(alertController, animated: true)
     }
     
