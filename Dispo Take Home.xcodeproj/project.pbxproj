@@ -25,7 +25,6 @@
 		B493441827DEC9390021EC25 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493441727DEC9390021EC25 /* MainCoordinator.swift */; };
 		B493442127DF827D0021EC25 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493442027DF827D0021EC25 /* Coordinator.swift */; };
 		B493442327DF83840021EC25 /* DetailsViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493442227DF83840021EC25 /* DetailsViewCoordinator.swift */; };
-		B493442527DF9C700021EC25 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493442427DF9C700021EC25 /* BaseNavigationController.swift */; };
 		B493442727DFD3BF0021EC25 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493442627DFD3BF0021EC25 /* DIContainer.swift */; };
 		B4F4A99C27C68CF000C8F89E /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4A99B27C68CF000C8F89E /* MainViewCell.swift */; };
 		FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B625EECD340029E28F /* SceneDelegate.swift */; };
@@ -64,7 +63,6 @@
 		B493441727DEC9390021EC25 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		B493442027DF827D0021EC25 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B493442227DF83840021EC25 /* DetailsViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewCoordinator.swift; sourceTree = "<group>"; };
-		B493442427DF9C700021EC25 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		B493442627DFD3BF0021EC25 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		B4F4A99B27C68CF000C8F89E /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		FF9415B125EECD340029E28F /* Dispo Take Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dispo Take Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,9 +213,9 @@
 			children = (
 				B44B107C27CB0CD4009316BD /* App */,
 				B493441127DEB99F0021EC25 /* Coordinator */,
-				B493441027DEAE8E0021EC25 /* ViewModel */,
 				B44B107627CA971D009316BD /* Model */,
 				B46CA7B027D6469400CA985A /* View */,
+				B493441027DEAE8E0021EC25 /* ViewModel */,
 				FF9415EC25EEEA560029E28F /* Util */,
 				B464EE8627D92BE600D0F729 /* Resources */,
 				FF9415C225EECD350029E28F /* Info.plist */,
@@ -257,7 +255,6 @@
 				B44B107427CA9299009316BD /* ApiClass.swift */,
 				B493442627DFD3BF0021EC25 /* DIContainer.swift */,
 				FF9415D425EED60B0029E28F /* Constants.swift */,
-				B493442427DF9C700021EC25 /* BaseNavigationController.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -390,7 +387,6 @@
 				B4F4A99C27C68CF000C8F89E /* MainViewCell.swift in Sources */,
 				B493442727DFD3BF0021EC25 /* DIContainer.swift in Sources */,
 				FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */,
-				B493442527DF9C700021EC25 /* BaseNavigationController.swift in Sources */,
 				B493442127DF827D0021EC25 /* Coordinator.swift in Sources */,
 				B44B107827CA9739009316BD /* GifModel.swift in Sources */,
 				B493440D27DE88510021EC25 /* MainViewModel.swift in Sources */,

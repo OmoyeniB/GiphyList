@@ -2,8 +2,6 @@ import Foundation
 
 final class MainViewModel {
     
-    static let identifier = "cell"
-    
     static func fetchDataFromServer(completion: @escaping ((Result<GifModel, Error>) -> Void)) {
         let url = URL(string: Constants.getTrendingGifURL)
         GifNetworkCall.shared.fetchGifData(url: url, expecting: GifModel.self) {
