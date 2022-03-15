@@ -1,6 +1,6 @@
 import Foundation
 
-class DIContainer {
+final class DIContainer {
     
    static func makeDetailsViewModel(gifId: String) -> DetailsViewModel {
         let detailsViewModel = DetailsViewModel()

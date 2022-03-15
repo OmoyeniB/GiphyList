@@ -2,14 +2,14 @@ import UIKit
 
 final class MainViewCoordinator: Coordinator {
     
-   private let navigationController: UINavigationController
-   
+    private let navigationController: UINavigationController
+    
     var navigateToDetailView: ((String) -> Void)?
     var rootViewController: UIViewController {
         navigationController
     }
     
-   init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
@@ -22,10 +22,6 @@ final class MainViewCoordinator: Coordinator {
         mainViewController.didSelectRow = {index in
             self.navigateToDetailView?(index)
         }
-        
-       
         navigationController.pushViewController(mainViewController, animated: true)
     }
-    
-   
 }

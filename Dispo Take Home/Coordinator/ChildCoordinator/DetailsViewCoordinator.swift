@@ -16,6 +16,8 @@ final class DetailsViewCoordinator: Coordinator {
         loadDetailsView()
     }
     
+    // MARK: - Methods to be coordinated
+    
     func loadDetailsView() {
         let detailsViewController = DetailViewController()
         detailsViewController.viewModel = viewModel

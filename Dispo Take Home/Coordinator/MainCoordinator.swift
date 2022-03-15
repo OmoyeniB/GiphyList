@@ -26,7 +26,6 @@ final class MainCoordinator: Coordinator {
         }
         
         mainViewCoordinator.navigateToDetailView = {index in
-            print(index, "index 2")
             self.navigateToDetailsView(cellId: index)
         }
     }
