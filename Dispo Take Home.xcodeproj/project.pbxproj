@@ -13,7 +13,6 @@
 		B46CA7A327D2B7DC00CA985A /* GifItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA7A227D2B7DC00CA985A /* GifItem.swift */; };
 		B46CA7B227D67C0100CA985A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA7B127D67C0100CA985A /* UIViewController+Extension.swift */; };
 		B46CA7C127D78F5200CA985A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B46CA7C027D78F5200CA985A /* SnapKit */; };
-		B46CA7C327D78F8E00CA985A /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = B46CA7C227D78F8E00CA985A /* SkeletonView */; };
 		B46CA7C527D78FE600CA985A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B46CA7C427D78FE600CA985A /* Kingfisher */; };
 		B46CA7C727D78FF500CA985A /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B46CA7C627D78FF500CA985A /* IQKeyboardManagerSwift */; };
 		B46CA7CF27D7966C00CA985A /* Dispo_Take_HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CA7CE27D7966C00CA985A /* Dispo_Take_HomeTests.swift */; };
@@ -90,7 +89,6 @@
 			files = (
 				B46CA7C527D78FE600CA985A /* Kingfisher in Frameworks */,
 				B46CA7C727D78FF500CA985A /* IQKeyboardManagerSwift in Frameworks */,
-				B46CA7C327D78F8E00CA985A /* SkeletonView in Frameworks */,
 				B46CA7C127D78F5200CA985A /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,9 +135,8 @@
 		B46CA7B027D6469400CA985A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B46CA7B127D67C0100CA985A /* UIViewController+Extension.swift */,
-				FF9415EA25EEEA510029E28F /* Detail */,
 				FF9415E825EEEA4C0029E28F /* Main */,
+				FF9415EA25EEEA510029E28F /* Detail */,
 				B44B107927CAC095009316BD /* CustomCell */,
 			);
 			path = View;
@@ -255,6 +252,7 @@
 				B44B107427CA9299009316BD /* ApiClass.swift */,
 				B493442627DFD3BF0021EC25 /* DIContainer.swift */,
 				FF9415D425EED60B0029E28F /* Constants.swift */,
+				B46CA7B127D67C0100CA985A /* UIViewController+Extension.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -295,7 +293,6 @@
 			name = "Dispo Take Home";
 			packageProductDependencies = (
 				B46CA7C027D78F5200CA985A /* SnapKit */,
-				B46CA7C227D78F8E00CA985A /* SkeletonView */,
 				B46CA7C427D78FE600CA985A /* Kingfisher */,
 				B46CA7C627D78FF500CA985A /* IQKeyboardManagerSwift */,
 			);
@@ -333,7 +330,6 @@
 			packageReferences = (
 				FF9415CD25EED15B0029E28F /* XCRemoteSwiftPackageReference "snapkit" */,
 				FF9415DD25EEDC000029E28F /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				B44B107D27CB1787009316BD /* XCRemoteSwiftPackageReference "SkeletonView" */,
 				B46CA7A527D3750400CA985A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = FF9415B225EECD340029E28F /* Products */;
@@ -664,14 +660,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B44B107D27CB1787009316BD /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		B46CA7A527D3750400CA985A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -703,11 +691,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF9415CD25EED15B0029E28F /* XCRemoteSwiftPackageReference "snapkit" */;
 			productName = SnapKit;
-		};
-		B46CA7C227D78F8E00CA985A /* SkeletonView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B44B107D27CB1787009316BD /* XCRemoteSwiftPackageReference "SkeletonView" */;
-			productName = SkeletonView;
 		};
 		B46CA7C427D78FE600CA985A /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;

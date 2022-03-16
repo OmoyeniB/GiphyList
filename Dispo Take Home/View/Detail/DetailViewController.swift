@@ -6,15 +6,6 @@ class DetailViewController: UIViewController {
     var gifItem: GifItem?
     var viewModel: DetailsViewModel?
     var didSelectItem: ((GifItem) -> Void)?
-    var didLoadDetailsView: CoordinatorTransition?
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func loadView() {
         super.loadView()
@@ -114,7 +105,6 @@ class DetailViewController: UIViewController {
     
     lazy var ratingsLabel: UILabel = {
         var ratingsLabel = UILabel()
-        ratingsLabel.isSkeletonable = true
         return ratingsLabel
     }()
     

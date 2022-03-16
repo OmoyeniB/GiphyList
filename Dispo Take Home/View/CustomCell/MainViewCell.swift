@@ -1,5 +1,4 @@
 import UIKit
-import SkeletonView
 import Kingfisher
 
 class MainViewCell: UITableViewCell {
@@ -29,7 +28,6 @@ class MainViewCell: UITableViewCell {
     
     private let gifTitle: UILabel = {
         let gifTitle = UILabel()
-        gifTitle.showAnimatedGradientSkeleton()
         gifTitle.numberOfLines = 0
         gifTitle.adjustsFontSizeToFitWidth = false
         return gifTitle

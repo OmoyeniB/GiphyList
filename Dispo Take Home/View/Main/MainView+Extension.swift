@@ -1,10 +1,9 @@
 import UIKit
-import SkeletonView
 
 extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gifItem?.data.count ?? 0
+        return gifModel?.data.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -13,7 +12,7 @@ extension MainViewController: UITableViewDataSource {
                                                        for: indexPath) as? MainViewCell
         else { return UITableViewCell() }
         
-        if let arrayOfGiphy = gifItem?.data[indexPath.row] {
+        if let arrayOfGiphy = gifModel?.data[indexPath.row] {
             cell.setup(with: arrayOfGiphy)
         }
         return cell
@@ -24,7 +23,7 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let id = gifItem?.data[indexPath.row].id  {
+        if let id = gifModel?.data[indexPath.row].id  {
             didSelectRow?(id)
         }
     }
@@ -44,7 +43,7 @@ extension MainViewController: UISearchControllerDelegate, UISearchResultsUpdatin
                     switch result {
                         case .success(let giphy):
                             DispatchQueue.main.async {
-                                self.gifItem = giphy
+                                self.gifModel = giphy
                                 self.tableView.reloadData()
                             }
                             

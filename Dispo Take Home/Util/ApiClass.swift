@@ -4,7 +4,7 @@ final class GifNetworkCall {
     static let shared = GifNetworkCall()
     
     private init() {}
-    
+
     enum CustomError: Error {
         case invalidUrl
         case invalidData

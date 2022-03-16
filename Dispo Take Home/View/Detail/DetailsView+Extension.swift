@@ -49,7 +49,7 @@ extension DetailViewController {
             make.top.equalTo(containerView).offset(40)
             make.leading.equalTo(containerView).offset(20)
             make.trailing.equalTo(containerView).inset(20)
-            make.height.equalTo(400)
+            make.height.equalTo(300)
         }
     }
     

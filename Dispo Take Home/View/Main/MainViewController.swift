@@ -1,5 +1,4 @@
 import UIKit
-import SkeletonView
 import XCTest
 
 class MainViewController: UIViewController {
@@ -9,7 +8,7 @@ class MainViewController: UIViewController {
     var viewModel: MainViewModel?
     var didSelectRow: ((String) -> Void)?
     var timer: Timer?
-    var gifItem: GifModel?
+    var gifModel: GifModel?
     
     override func loadView() {
         super.loadView()
@@ -68,6 +67,7 @@ class MainViewController: UIViewController {
         searchController.searchBar.placeholder = Constants.searchBarPlaceHolder
         searchController.automaticallyShowsCancelButton = false
         searchController.delegate = self
+        searchController.becomeFirstResponder()
     }
     
     func gifUILoadedFromServer() {
@@ -76,7 +76,7 @@ class MainViewController: UIViewController {
             switch result {
                 case .success(let giphy):
                     DispatchQueue.main.async {
-                        self.gifItem = giphy
+                        self.gifModel = giphy
                         self.tableView.reloadData()
                     }
                     
